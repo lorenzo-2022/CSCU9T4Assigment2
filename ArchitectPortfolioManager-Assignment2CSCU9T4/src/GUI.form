@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1268" height="574"/>
+      <xy x="20" y="20" width="1323" height="574"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -47,7 +47,7 @@
                   <text value="classification"/>
                 </properties>
               </component>
-              <component id="8ab37" class="javax.swing.JTextField" binding="classificationTextField1">
+              <component id="8ab37" class="javax.swing.JTextField" binding="classificationTextField">
                 <constraints>
                   <grid row="1" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -86,7 +86,7 @@
                   <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="new not renovation"/>
+                  <text value="new or renovation"/>
                 </properties>
               </component>
               <component id="b8956" class="javax.swing.JLabel" binding="customerIDLabel">
@@ -110,7 +110,7 @@
                   <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="actual start"/>
+                  <text value="actual start d/m/y"/>
                 </properties>
               </component>
               <component id="840cb" class="javax.swing.JLabel" binding="actualEndLabel">
@@ -118,7 +118,7 @@
                   <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="actual end"/>
+                  <text value="actual end d/m/y"/>
                 </properties>
               </component>
               <component id="e501" class="javax.swing.JLabel" binding="accumulatedCostLabel">
@@ -129,7 +129,7 @@
                   <text value="accumulated cost"/>
                 </properties>
               </component>
-              <component id="bcd9c" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+              <component id="bcd9c" class="javax.swing.JTextField" binding="managerTextField">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -137,7 +137,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="387bd" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+              <component id="387bd" class="javax.swing.JTextField" binding="locationTextField">
                 <constraints>
                   <grid row="4" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -145,89 +145,83 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="ab3bf" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+              <component id="ab3bf" class="javax.swing.JTextField" binding="customerIDTextField">
                 <constraints>
                   <grid row="6" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
-              </component>
-              <component id="3c714" class="javax.swing.JCheckBox" binding="checkBox1" default-binding="true">
-                <constraints>
-                  <grid row="5" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
                 <properties>
-                  <text value="CheckBox"/>
+                  <text value=""/>
                 </properties>
               </component>
-              <component id="4ccd4" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+              <component id="4ccd4" class="javax.swing.JSlider" binding="estimatedDurationSlider">
                 <constraints>
                   <grid row="7" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="4bf8c" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+              <component id="4bf8c" class="javax.swing.JSpinner" binding="accumulatedCostSpinner">
                 <constraints>
                   <grid row="11" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="5c733" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
+              <component id="5c733" class="javax.swing.JSpinner" binding="budgerSpinner">
                 <constraints>
                   <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="db235" class="javax.swing.JSpinner" binding="spinner3" default-binding="true">
+              <component id="db235" class="javax.swing.JSpinner" binding="actualStartDaySpinner">
                 <constraints>
                   <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="d5dc9" class="javax.swing.JSpinner" binding="spinner4" default-binding="true">
+              <component id="d5dc9" class="javax.swing.JSpinner" binding="actualStartMonthSpinner">
                 <constraints>
                   <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="26aa4" class="javax.swing.JSpinner" binding="spinner5" default-binding="true">
+              <component id="26aa4" class="javax.swing.JSpinner" binding="actualStartYearSpinner">
                 <constraints>
                   <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="dd4c4" class="javax.swing.JSpinner" binding="spinner6" default-binding="true">
+              <component id="dd4c4" class="javax.swing.JSpinner" binding="actualEndDaySpinner">
                 <constraints>
                   <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="9a959" class="javax.swing.JSpinner" binding="spinner7" default-binding="true">
+              <component id="9a959" class="javax.swing.JSpinner" binding="estimatedStartDaySpinner">
                 <constraints>
                   <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="43ba" class="javax.swing.JSpinner" binding="spinner8" default-binding="true">
+              <component id="43ba" class="javax.swing.JSpinner" binding="estimatedStartMonthSpinner">
                 <constraints>
                   <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="d31e1" class="javax.swing.JSpinner" binding="spinner9" default-binding="true">
+              <component id="d31e1" class="javax.swing.JSpinner" binding="actualEndMonthSpinner">
                 <constraints>
                   <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="c90c3" class="javax.swing.JSpinner" binding="spinner10" default-binding="true">
+              <component id="c90c3" class="javax.swing.JSpinner" binding="estimatedStartYearSpinner">
                 <constraints>
                   <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="13d75" class="javax.swing.JSpinner" binding="spinner11" default-binding="true">
+              <component id="13d75" class="javax.swing.JSpinner" binding="actualEndYearSpinner">
                 <constraints>
                   <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -238,7 +232,7 @@
                   <grid row="0" column="5" row-span="14" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <component id="302c5" class="javax.swing.JLabel">
+              <component id="302c5" class="javax.swing.JLabel" binding="typeLabel">
                 <constraints>
                   <grid row="0" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -251,10 +245,10 @@
                   <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="estimated start"/>
+                  <text value="estimated start d/m/y"/>
                 </properties>
               </component>
-              <component id="e0b0c" class="javax.swing.JLabel">
+              <component id="e0b0c" class="javax.swing.JLabel" binding="floodingRiskLabel">
                 <constraints>
                   <grid row="1" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -262,7 +256,7 @@
                   <text value="flooding risk"/>
                 </properties>
               </component>
-              <component id="d6e7" class="javax.swing.JLabel">
+              <component id="d6e7" class="javax.swing.JLabel" binding="buildingMaterialLabel">
                 <constraints>
                   <grid row="2" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -270,7 +264,7 @@
                   <text value="building material"/>
                 </properties>
               </component>
-              <component id="c7ef0" class="javax.swing.JLabel">
+              <component id="c7ef0" class="javax.swing.JLabel" binding="sizeLabel">
                 <constraints>
                   <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -278,7 +272,7 @@
                   <text value="size"/>
                 </properties>
               </component>
-              <component id="4f336" class="javax.swing.JLabel">
+              <component id="4f336" class="javax.swing.JLabel" binding="bedroomsLabel">
                 <constraints>
                   <grid row="4" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -286,7 +280,7 @@
                   <text value="bedrooms"/>
                 </properties>
               </component>
-              <component id="ec24e" class="javax.swing.JLabel">
+              <component id="ec24e" class="javax.swing.JLabel" binding="landSizeAcresLabel">
                 <constraints>
                   <grid row="5" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -294,7 +288,7 @@
                   <text value="land size (acres)"/>
                 </properties>
               </component>
-              <component id="7fd1c" class="javax.swing.JLabel">
+              <component id="7fd1c" class="javax.swing.JLabel" binding="bathroomsLabel">
                 <constraints>
                   <grid row="6" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -302,7 +296,7 @@
                   <text value="bathrooms"/>
                 </properties>
               </component>
-              <component id="3bda0" class="javax.swing.JLabel">
+              <component id="3bda0" class="javax.swing.JLabel" binding="garageLabel">
                 <constraints>
                   <grid row="7" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -310,15 +304,15 @@
                   <text value="garage"/>
                 </properties>
               </component>
-              <component id="a86af" class="javax.swing.JLabel">
+              <component id="a86af" class="javax.swing.JLabel" binding="roofLabel">
                 <constraints>
-                  <grid row="8" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="roof"/>
                 </properties>
               </component>
-              <component id="d6038" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="d6038" class="javax.swing.JTextField" binding="typeTextField">
                 <constraints>
                   <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -326,13 +320,13 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="490bf" class="javax.swing.JSlider" binding="slider2" default-binding="true">
+              <component id="490bf" class="javax.swing.JSlider" binding="floodingRiskSlider">
                 <constraints>
                   <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="1bc41" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+              <component id="1bc41" class="javax.swing.JTextField" binding="buildingMaterialTextField">
                 <constraints>
                   <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -340,25 +334,25 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="8c418" class="javax.swing.JSpinner" binding="spinner12" default-binding="true">
+              <component id="8c418" class="javax.swing.JSpinner" binding="sizeSpinner">
                 <constraints>
                   <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="46edc" class="javax.swing.JSpinner" binding="spinner13" default-binding="true">
+              <component id="46edc" class="javax.swing.JSpinner" binding="bedroomsSpinner">
                 <constraints>
                   <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="4d39a" class="javax.swing.JSpinner" binding="spinner14" default-binding="true">
+              <component id="4d39a" class="javax.swing.JSpinner" binding="bathroomsSpinner">
                 <constraints>
                   <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="7650a" class="javax.swing.JSpinner" binding="spinner15" default-binding="true">
+              <component id="7650a" class="javax.swing.JSpinner" binding="landSizeAcresSpinner">
                 <constraints>
                   <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -372,7 +366,7 @@
                   <text value="CheckBox"/>
                 </properties>
               </component>
-              <component id="37646" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+              <component id="37646" class="javax.swing.JTextField" binding="roofTextField">
                 <constraints>
                   <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -380,7 +374,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="a9272" class="javax.swing.JLabel">
+              <component id="a9272" class="javax.swing.JLabel" binding="widthLabel">
                 <constraints>
                   <grid row="9" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -388,7 +382,7 @@
                   <text value="width"/>
                 </properties>
               </component>
-              <component id="baf7" class="javax.swing.JLabel">
+              <component id="baf7" class="javax.swing.JLabel" binding="spanLabel">
                 <constraints>
                   <grid row="10" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -396,7 +390,7 @@
                   <text value="span"/>
                 </properties>
               </component>
-              <component id="c6c60" class="javax.swing.JLabel">
+              <component id="c6c60" class="javax.swing.JLabel" binding="overlayLabel">
                 <constraints>
                   <grid row="11" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -410,13 +404,13 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="d6e7b" class="javax.swing.JSpinner" binding="spinner17" default-binding="true">
+              <component id="d6e7b" class="javax.swing.JSpinner" binding="spanSpinner">
                 <constraints>
                   <grid row="10" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="7a5a3" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+              <component id="7a5a3" class="javax.swing.JTextField" binding="overlayTextField">
                 <constraints>
                   <grid row="11" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -424,7 +418,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="3d67c" class="javax.swing.JLabel">
+              <component id="3d67c" class="javax.swing.JLabel" binding="untiOfSizeLabel">
                 <constraints>
                   <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -432,7 +426,7 @@
                   <text value="unit"/>
                 </properties>
               </component>
-              <component id="2fd3c" class="javax.swing.JLabel">
+              <component id="2fd3c" class="javax.swing.JLabel" binding="compositionLabel">
                 <constraints>
                   <grid row="12" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -440,7 +434,7 @@
                   <text value="current composition"/>
                 </properties>
               </component>
-              <component id="44e17" class="javax.swing.JLabel">
+              <component id="44e17" class="javax.swing.JLabel" binding="natureReserveLabel">
                 <constraints>
                   <grid row="13" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -448,7 +442,7 @@
                   <text value="nature reserve"/>
                 </properties>
               </component>
-              <component id="620e9" class="javax.swing.JCheckBox" binding="checkBox3" default-binding="true">
+              <component id="620e9" class="javax.swing.JCheckBox" binding="natureReserveCheckBox">
                 <constraints>
                   <grid row="13" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -456,7 +450,7 @@
                   <text value="CheckBox"/>
                 </properties>
               </component>
-              <component id="57e98" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+              <component id="57e98" class="javax.swing.JTextField" binding="compositionTextField">
                 <constraints>
                   <grid row="12" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -469,7 +463,7 @@
                   <grid row="0" column="9" row-span="14" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <component id="f35d7" class="javax.swing.JLabel">
+              <component id="f35d7" class="javax.swing.JLabel" binding="excavatingLabel">
                 <constraints>
                   <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -477,7 +471,7 @@
                   <text value="excavating"/>
                 </properties>
               </component>
-              <component id="5fcef" class="javax.swing.JTextField" binding="textField9" default-binding="true">
+              <component id="5fcef" class="javax.swing.JTextField" binding="excavatingTextField">
                 <constraints>
                   <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -485,7 +479,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="fe0f8" class="javax.swing.JCheckBox" binding="checkBox4" default-binding="true">
+              <component id="fe0f8" class="javax.swing.JCheckBox" binding="safetyTunnerCheckBox">
                 <constraints>
                   <grid row="1" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -493,27 +487,27 @@
                   <text value="CheckBox"/>
                 </properties>
               </component>
-              <component id="99324" class="javax.swing.JSpinner" binding="spinner18" default-binding="true">
+              <component id="99324" class="javax.swing.JSpinner" binding="lengthSpinner">
                 <constraints>
                   <grid row="2" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="6da1b" class="javax.swing.JSpinner" binding="spinner19" default-binding="true">
+              <component id="6da1b" class="javax.swing.JSpinner" binding="groundStabilitySpinner">
                 <constraints>
                   <grid row="3" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="e1e05" class="javax.swing.JLabel">
+              <component id="e1e05" class="javax.swing.JLabel" binding="safetyTunnelLabel">
                 <constraints>
                   <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="safety tunner"/>
+                  <text value="safety tunnel"/>
                 </properties>
               </component>
-              <component id="b3088" class="javax.swing.JLabel">
+              <component id="b3088" class="javax.swing.JLabel" binding="lengthLabel">
                 <constraints>
                   <grid row="2" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -521,7 +515,7 @@
                   <text value="length"/>
                 </properties>
               </component>
-              <component id="b656f" class="javax.swing.JLabel">
+              <component id="b656f" class="javax.swing.JLabel" binding="groundStabilityLabel">
                 <constraints>
                   <grid row="3" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -543,6 +537,14 @@
                 </constraints>
                 <properties>
                   <text value="Record a new project"/>
+                </properties>
+              </component>
+              <component id="3c714" class="javax.swing.JCheckBox" binding="newNotRenovationCheckBox">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="new"/>
                 </properties>
               </component>
             </children>
