@@ -42,15 +42,14 @@ public class ProjectManager {
                 System.out.println(projectString);
 
                 //splitting each line around commas to allow us to find each comma seperated value
-                String [] projectInformation = projectString.split(",");
+                String [] projectInformation = projectString.split(",", Integer.MAX_VALUE); //providing a limit value as large as possible because otherwise
                 System.out.println(projectInformation.length); //it should be length 29, but it says it's length is 20 because the last 9 values are empty strings!
 
                 //going through each comma seperated value
                 String projectTypeAndClassificationString = projectInformation[0];
                 String[] projectTypeAndClassification = projectTypeAndClassificationString.split(";");
                 String projectType = projectTypeAndClassification[0];
-                String classification = projectTypeAndClassification[1];
-                System.out.println(classification); //I need to remove first char which is a space for the classification field
+                String classification = projectTypeAndClassification[1]; //I need to remove first char which is a space for the classification field
                 String type = projectInformation[1];
                 String size = projectInformation[2];
                 String bedrooms = projectInformation[3];
