@@ -39,17 +39,15 @@ public class ProjectManager {
 
                 //each line is a project
                 String projectString = dataLine;
-                System.out.println(projectString);
 
                 //splitting each line around commas to allow us to find each comma seperated value
-                String [] projectInformation = projectString.split(",", Integer.MAX_VALUE); //providing a limit value as large as possible because otherwise
-                System.out.println(projectInformation.length); //it should be length 29, but it says it's length is 20 because the last 9 values are empty strings!
+                String [] projectInformation = projectString.split(",", Integer.MAX_VALUE); //providing a limit value as large as possible because otherwiseThe one-argument split method is specified to ignore trailing empty string splits but the version that takes a "limit" argument preserves them
 
                 //going through each comma seperated value
                 String projectTypeAndClassificationString = projectInformation[0];
                 String[] projectTypeAndClassification = projectTypeAndClassificationString.split(";");
                 String projectType = projectTypeAndClassification[0];
-                String classification = projectTypeAndClassification[1]; //I need to remove first char which is a space for the classification field
+                String typeClassification = projectTypeAndClassification[1].trim(); //.trim() method removes empty spaces surrounding string
                 String type = projectInformation[1];
                 String size = projectInformation[2];
                 String bedrooms = projectInformation[3];
