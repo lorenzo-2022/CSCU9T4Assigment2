@@ -1,6 +1,16 @@
 import javax.swing.*;
 
 public class GUI {
+
+    public static void main(String[] args) {
+        ProjectManager PM = new ProjectManager();
+        JFrame frame = new JFrame("GUI");
+        frame.setContentPane(new GUI().panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
     private JPanel panel1;
     private JButton addProjectButton;
     private JTabbedPane tabbedPane1;
@@ -75,9 +85,4 @@ public class GUI {
     private JLabel safetyTunnelLabel;
     private JLabel lengthLabel;
     private JLabel groundStabilityLabel;
-
-
-    public static void main(String[] args){
-        ProjectManager PM = new ProjectManager();
-    }
 }
