@@ -14,8 +14,9 @@ public class CSVReader {
     public CSVReader() {
         inputFileName = ("jenga_projects.csv");
         read();
-        System.out.println(contents);
-        //parse();
+        System.out.println(contents+"\n");
+        parse();
+        System.out.println(parsedContents);
     }
 
     /** object methods */
@@ -29,8 +30,7 @@ public class CSVReader {
             int lineCount = 0;
             while ((dataLine = inputStreamReader.readLine()) != null) {  // if the next line in the file is not empty, get next line from file
 
-                contents+= dataLine;
-                System.out.println(dataLine);
+                contents += dataLine;
 /*
                 // Find the position of the *first* tab for splitting the line
                 int tabPos1 = dataLine.indexOf(',');
@@ -98,15 +98,50 @@ public class CSVReader {
         }
     }
 
-    //parses the CSV file
+    //parses the CSV file String
     private void parse() {
-        String[] projects = contents.split("\n");
-        ArrayList<String> parsedProjects = new ArrayList();
-        int numOfProjects = projects.length;
+        String[] projectStrings = contents.split("\n"); //each project is one line so this array's elements are each one line, i.e. project string
+        int numOfProjects = projectStrings.length;
 
+        ArrayList<String> parsedProjects = new ArrayList();
+
+        //cycling through each projectString
         for (int cycle = 0; cycle < numOfProjects; cycle++){
-            String project = projects[cycle];
-            String [] projectInformation = project.split(",");
+            if (cycle == 0){continue;} //skip first project because it contains headings.
+            String projectString = projectStrings[cycle];
+            //going through each comma seperated value on each line
+            String [] projectInformation = projectString.split(",");
+            String projectType = projectInformation[0];
+            String type = projectInformation[1];
+            String size = projectInformation[2];
+            String bedrooms = projectInformation[3];
+            String landSize = projectInformation[4];
+            String bathrooms = projectInformation[5];
+            String floodingRisk = projectInformation[6];
+            String garage = projectInformation[7];
+            String buildingMaterial = projectInformation[8];
+            String roof = projectInformation[9];
+            String budget = projectInformation[10];
+            String projectManager = projectInformation[11];
+            String location = projectInformation[12];
+            String newNotRenovation = projectInformation[13];
+            String customerID = projectInformation[14];
+            String estimatedDuration = projectInformation[15];
+            String estimatedStart = projectInformation[16];
+            String actualStart = projectInformation[17];
+            String actualEnd = projectInformation[18];
+            String accumulatedCost = projectInformation[19];
+            String excavating = projectInformation[20];
+            String width = projectInformation[21];
+            String overlay = projectInformation[22];
+            String safetyTunnel = projectInformation[23];
+            String span = projectInformation[24];
+            String currentComposition = projectInformation[25];
+            String length = projectInformation[26];
+            String natureReserve = projectInformation[27];
+            String groundStructuralStability = projectInformation[28];
         }
+
+
     }
 }
