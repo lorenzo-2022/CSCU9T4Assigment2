@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 public class GUI {
 
@@ -22,7 +20,7 @@ public class GUI {
         addProjectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
     }
@@ -43,7 +41,7 @@ public class GUI {
     private JLabel classificationLabel;
     private JTextField classificationTextField;
     private JButton editProjectButton;
-    private JTextArea textArea1;
+    private JTextArea textArea;
     private JTextField managerTextField;
     private JTextField locationTextField;
     private JTextField customerIDTextField;
@@ -110,4 +108,8 @@ public class GUI {
     private JLabel safetyTunnelLabel;
     private JLabel lengthLabel;
     private JLabel groundStabilityLabel;
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
