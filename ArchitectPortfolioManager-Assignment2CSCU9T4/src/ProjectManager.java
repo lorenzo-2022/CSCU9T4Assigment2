@@ -81,17 +81,11 @@ public class ProjectManager {
 
                 //these fields are for house projects only
                 String bedroomsString = projectInformation[3];
-                int bedrooms =0;
-                if (!(bedroomsString.equals(""))) {
-                    bedrooms = (int) Float.parseFloat(bedroomsString);
-                }
+                int bedrooms = stringToInt(bedroomsString);
                 String landSizeString = projectInformation[4];
                 float landSize = stringToFloat(landSizeString);
                 String bathroomsString = projectInformation[5];
-                int bathrooms = 0;
-                if (!(bathroomsString.equals(""))){
-                    bathrooms = (int) Float.parseFloat(bathroomsString);
-                }
+                int bathrooms = stringToInt(bathroomsString);
                 String garageString = projectInformation[7];
                 boolean garage = Boolean.parseBoolean(garageString);
                 String roof = projectInformation[9];
