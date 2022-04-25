@@ -34,13 +34,12 @@ public class ProjectManager {
             BufferedReader inputStreamReader = new BufferedReader(new FileReader(inputFileName));
             String dataLine;  // To receive each line from the file
 
-            int lineCount = 0;
+            lineCount = 0;
             while ((dataLine = inputStreamReader.readLine()) != null) {  // if the next line in the file is not empty, get next line from file
-
-                contents += dataLine;
+                contents += dataLine+"\n";
             }
 
-            inputStreamReader.close();                               // File finished, arrays full or bad data, so close file
+            inputStreamReader.close();                               // File finished reading, so close file
         }
         catch (IOException ex) {
             System.out.println("File reading error");    // File handling error: read no further
@@ -52,7 +51,7 @@ public class ProjectManager {
         String[] projectStrings = contents.split("\n"); //each project is one line so this array's elements are each one line, i.e. project string
         int numOfProjects = projectStrings.length;
 
-        ArrayList<String> parsedProjects = new ArrayList();
+        //ArrayList<String> parsedProjects = new ArrayList();
 
         //cycling through each projectString
         for (int cycle = 0; cycle < numOfProjects; cycle++){
@@ -60,7 +59,12 @@ public class ProjectManager {
             String projectString = projectStrings[cycle];
             //going through each comma seperated value on each line
             String [] projectInformation = projectString.split(",");
-            String projectType = projectInformation[0];
+            System.out.println(projectInformation.length); //it should be length 29 but it says it's length is 20 for some reason?!
+            String projectTypeAndClassificationString = projectInformation[0];
+            String[] projectTypeAndClassification = projectTypeAndClassificationString.split(";");
+            String projectType = projectTypeAndClassification[0];
+            String classification = projectTypeAndClassification[1];
+            System.out.println(classification); //i need to remove first char which is a space for the classification field
             String type = projectInformation[1];
             String size = projectInformation[2];
             String bedrooms = projectInformation[3];
@@ -90,12 +94,13 @@ public class ProjectManager {
             String natureReserve = projectInformation[27];
             String groundStructuralStability = projectInformation[28];
 
-            //constructing the objects
-            addProject();
+            //constructing the object and adding it to the projects array list
+            Project project = new Project();
+            addProject(project);
         }
 
     }
 
-    private void addProject() {
+    private void addProject(Project project) {
     }
 }
