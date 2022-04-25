@@ -109,7 +109,4 @@ public class GUI {
     private JLabel lengthLabel;
     private JLabel groundStabilityLabel;
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }
