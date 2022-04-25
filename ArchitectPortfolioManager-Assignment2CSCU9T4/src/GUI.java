@@ -55,7 +55,7 @@ public class GUI {
     private JSpinner bedroomsSpinner;
     private JSpinner bathroomsSpinner;
     private JSpinner landSizeAcresSpinner;
-    private JCheckBox checkBox2;
+    private JCheckBox garageCheckBox;
     private JTextField roofTextField;
     private JSpinner spinner16;
     private JSpinner spanSpinner;
@@ -63,7 +63,7 @@ public class GUI {
     private JCheckBox natureReserveCheckBox;
     private JTextField compositionTextField;
     private JTextField excavatingTextField;
-    private JCheckBox safetyTunnerCheckBox;
+    private JCheckBox safetyTunnelCheckBox;
     private JSpinner lengthSpinner;
     private JSpinner groundStabilitySpinner;
     private JLabel typeLabel;
