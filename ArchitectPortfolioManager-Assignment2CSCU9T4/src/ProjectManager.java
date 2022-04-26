@@ -203,6 +203,7 @@ public class ProjectManager {
     }
 
     public boolean isUnique(Project project) {
+        //checks if a project customer ID property value is unique or not
         boolean isUnique = true;
 
         ListIterator<Project> projectListIterator = projects.listIterator();

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Calendar;
 
 public class Project {
@@ -127,5 +128,11 @@ public class Project {
 
     public void setAccumulatedCost(int accumulatedCost) {
         this.accumulatedCost = accumulatedCost;
+    }
+
+    public boolean isCorrect() {
+        boolean isCorrect = true;
+        JOptionPane.showMessageDialog(null, "warning", "warning title", JOptionPane.WARNING_MESSAGE);
+        return isCorrect;
     }
 }

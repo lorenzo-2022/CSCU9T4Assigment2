@@ -89,7 +89,7 @@ public class UI {
 
     /**main method: program start*/
     public static void main(String[] args) {
-        //ProjectManager PM = new ProjectManager(); //added this to UI object variables instead so i can access it in UI constructor for pre_fill method
+        //ProjectManager PM = new ProjectManager(); //added this to UI object variables instead, so I can access it in UI constructor for pre_fill method
         UI GUI = new UI();
     }
 
@@ -107,14 +107,27 @@ public class UI {
         projectTypeJComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //enable or disable project fields based on selected project type
                 enableOrDisableProjectSpecificFields();
+                //clear fields when a different project type has been selected
+                clearAllProjectFields();
             }
         });
         editProjectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //constructing the inserted object and changing object in project manager if it exists
+                //constructing the object and adding it to the projects array list
+                Project newProject = generateProjectFromFields();
 
+                //check that fields are correct format, if not block entry and let user know with a JOptionPane
+                if (newProject.isCorrect()){
+                    //editing project
+                    editProject(newProject);
+
+                    //clearing fields once a project has been edited
+                    clearAllProjectFields();
+                }
             }
         });
         addProjectButton.addActionListener(new ActionListener() {
@@ -122,7 +135,14 @@ public class UI {
             public void actionPerformed(ActionEvent e) {
                 //constructing the object and adding it to the projects array list
                 Project newProject = generateProjectFromFields();
-                addProject(newProject);
+
+                //check that fields are correct format, if not block entry and let user know with a JOptionPane
+                if (newProject.isCorrect()){
+                    addProject(newProject);
+
+                    //clearing fields once a project has been added
+                    clearAllProjectFields();
+                }
             }
         });
         projectTypeSearchButton.addActionListener(new ActionListener() {
@@ -144,6 +164,7 @@ public class UI {
             }
         });
     }
+
     /**object methods*/
 
     private Project generateProjectFromFields() {
@@ -230,6 +251,10 @@ public class UI {
         }
     }
 
+    private void editProject(Project project) {
+        //edit project
+    }
+
     private void pre_fill(ProjectManager pm) {
         //pre-fill and do stuff for when program first starts up
         projectTypeJComboBox.removeAllItems();
@@ -241,10 +266,8 @@ public class UI {
     }
 
     private void enableOrDisableProjectSpecificFields() {
-        //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
-        //clearAllProjectFields();
         disableAllProjectSpecificFields();
-        //disableEditAndRecordButton();
+
         if (projectTypeJComboBox.getSelectedItem().equals("House")){
             //set up GUI for house projects
             typeTextField.setEnabled(true);
@@ -253,7 +276,6 @@ public class UI {
             sizeSpinner.setEnabled(true);
             unitOfSizeLabel.setEnabled(true);
             unitOfSizeLabel.setText("m**2");
-            //((JSpinner.DefaultEditor) bedroomsSpinner.getEditor()).getTextField().setEditable(false);
             bedroomsSpinner.setEnabled(true);
             landSizeAcresSpinner.setEnabled(true);
             bathroomsSpinner.setEnabled(true);
@@ -288,25 +310,42 @@ public class UI {
         }
     }
 
-    private void disableEditAndRecordButton() {
-        editProjectButton.setEnabled(false);
-        addProjectButton.setEnabled(false);
+    private void clearAllProjectFields() {
+        //clears input from all fields
+        classificationTextField.setText("");
+        budgetSpinner.setValue(0);
+        managerTextField.setText("");
+        locationTextField.setText("");
+        newNotRenovationCheckBox.setSelected(false);
+        customerIDTextField.setText("");
+        estimatedDurationSpinner.setValue(0);
+        estimatedStartSpinner.setValue(new Date());
+        actualStartSpinner.setValue(new Date());
+        actualEndSpinner.setValue(new Date());
+        accumulatedCostSpinner.setValue(0);
+        //project specific fields
+        typeTextField.setText("");
+        floodingRiskSpinner.setValue(0);
+        buildingMaterialTextField.setText("");
+        sizeSpinner.setValue(0);
+        bedroomsSpinner.setValue(0);
+        landSizeAcresSpinner.setValue(0.0);
+        bathroomsSpinner.setValue(0);
+        garageCheckBox.setSelected(false);
+        roofTextField.setText("");
+        widthSpinner.setValue(0);
+        spanSpinner.setValue(0);
+        overlayTextField.setText("");
+        compositionTextField.setText("");
+        natureReserveCheckBox.setSelected(false);
+        excavatingTextField.setText("");
+        safetyTunnelCheckBox.setSelected(false);
+        lengthSpinner.setValue(0);
+        groundStabilitySpinner.setValue(0);
     }
 
     private void disableAllProjectSpecificFields() {
-        /*
-        classificationTextField.setEnabled(false);
-        budgetSpinner.setEnabled(false);
-        managerTextField.setEnabled(false);
-        locationTextField.setEnabled(false);
-        newNotRenovationCheckBox.setEnabled(false);
-        customerIDTextField.setEnabled(false);
-        estimatedDurationSpinner.setEnabled(false);
-        estimatedStartSpinner.setEnabled(false);
-        actualStartSpinner.setEnabled(false);
-        actualEndSpinner.setEnabled(false);
-        accumulatedCostSpinner.setEnabled(false);
-        */
+        //disables all project specific fields
         typeTextField.setEnabled(false);
         floodingRiskSpinner.setEnabled(false);
         buildingMaterialTextField.setEnabled(false);
