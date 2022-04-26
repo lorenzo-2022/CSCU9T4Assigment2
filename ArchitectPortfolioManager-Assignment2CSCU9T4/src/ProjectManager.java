@@ -217,4 +217,17 @@ public class ProjectManager {
         }
         return isUnique;
     }
+
+    public void editProject(Project project) {
+        //edit project with the same customer ID
+        //iterate through projects
+        ListIterator<Project> projectListIterator = projects.listIterator();
+        while (projectListIterator.hasNext()){
+            Project currentProject = projectListIterator.next();
+            if (currentProject.getCustomerID().equals(project.getCustomerID())) {
+                //then current project is the project that needs to be edited
+                projectListIterator.set(project);
+            }
+        }
+    }
 }

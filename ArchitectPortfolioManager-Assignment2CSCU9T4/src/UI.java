@@ -252,7 +252,16 @@ public class UI {
     }
 
     private void editProject(Project project) {
-        //edit project
+        //if project is null don't add
+        if (project == null){
+            return;
+        }
+        //checking that project customerID is NOT unique, and if so edit project in manager. Because customer IDs are unique to each project.
+        if (!(PM.isUnique(project))) {
+            PM.editProject(project);
+        } else{
+            return;
+        }
     }
 
     private void pre_fill(ProjectManager pm) {
