@@ -24,18 +24,38 @@ public class GUI {
 
             }
         });
+        projectTypeSearchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        projectManagerSearchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        costRangeSearchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         ProjectManager PM = new ProjectManager();
         JFrame frame = new JFrame("Jenga Design Ltd. Portfolio Manager");
-        frame.setContentPane(new GUI().panel1);
+        frame.setContentPane(new GUI().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        GUI UI = new GUI(); //I think I need this line
+        //GUI UI = new GUI(); //I think I need this line
         pre_fill();
     }
+
 
     private static void pre_fill() {
         //pre-fill and do stuff for when program first starts up
@@ -46,9 +66,9 @@ public class GUI {
         //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
     }
 
-    private JPanel panel1;
+    private JPanel panel;
     private JButton addProjectButton;
-    private JTabbedPane tabbedPane1;
+    private JTabbedPane tabbedPane;
     private JComboBox projectTypeJComboBox;
     private JLabel classificationLabel;
     private JTextField classificationTextField;
@@ -82,7 +102,7 @@ public class GUI {
     private JSpinner estimatedStartYearSpinner;
     private JSpinner actualEndYearSpinner;
     private JTextField typeTextField;
-    private JSlider floodingRiskSlider;
+    private JSpinner floodingRiskSpinner;
     private JTextField buildingMaterialTextField;
     private JSpinner sizeSpinner;
     private JSpinner bedroomsSpinner;
@@ -90,7 +110,7 @@ public class GUI {
     private JSpinner landSizeAcresSpinner;
     private JCheckBox garageCheckBox;
     private JTextField roofTextField;
-    private JSpinner spinner16;
+    private JSpinner widthSpinner;
     private JSpinner spanSpinner;
     private JTextField overlayTextField;
     private JCheckBox natureReserveCheckBox;
@@ -103,7 +123,7 @@ public class GUI {
     private JLabel floodingRiskLabel;
     private JLabel buildingMaterialLabel;
     private JLabel sizeLabel;
-    private JLabel untiOfSizeLabel;
+    private JLabel unitOfSizeLabel;
     private JLabel bedroomsLabel;
     private JLabel landSizeAcresLabel;
     private JLabel bathroomsLabel;
@@ -118,15 +138,17 @@ public class GUI {
     private JLabel safetyTunnelLabel;
     private JLabel lengthLabel;
     private JLabel groundStabilityLabel;
-    private JSpinner spinner1;
+    private JSpinner budgetSpinner;
     private JComboBox projectTypeSearchJComboBox;
     private JButton projectTypeSearchButton;
     private JButton costRangeSearchButton;
     private JButton projectManagerSearchButton;
-    private JSpinner spinner2;
-    private JSpinner spinner3;
-    private JTextField textField1;
-    private JTextArea textArea1;
+    private JSpinner maxCostRangeSearchSpinner;
+    private JSpinner minCostRangeSearchSpinner;
+    private JTextField projectManagerSearchTextField;
+    private JTextArea searchResultsTextArea;
+    private JLabel minCostRangeSearchLabel;
+    private JLabel maxCostRangeSearchLabel;
 
 
     {
@@ -144,20 +166,20 @@ public class GUI {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        panel1 = new JPanel();
-        panel1.setLayout(new GridBagLayout());
-        tabbedPane1 = new JTabbedPane();
+        panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        tabbedPane = new JTabbedPane();
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.BOTH;
-        panel1.add(tabbedPane1, gbc);
+        panel.add(tabbedPane, gbc);
         addOrEditJPanel = new JPanel();
         addOrEditJPanel.setLayout(new GridBagLayout());
         addOrEditJPanel.setInheritsPopupMenu(false);
         addOrEditJPanel.setName("estimated duration");
-        tabbedPane1.addTab("Add/Edit Project", addOrEditJPanel);
+        tabbedPane.addTab("Add/Edit Project", addOrEditJPanel);
         projectTypeJComboBox = new JComboBox();
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
@@ -509,7 +531,7 @@ public class GUI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(typeTextField, gbc);
-        floodingRiskSlider = new JSlider();
+        floodingRiskSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
         gbc.gridy = 2;
@@ -517,7 +539,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(floodingRiskSlider, gbc);
+        addOrEditJPanel.add(floodingRiskSpinner, gbc);
         buildingMaterialTextField = new JTextField();
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -611,7 +633,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         addOrEditJPanel.add(overlayLabel, gbc);
-        spinner16 = new JSpinner();
+        widthSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
         gbc.gridy = 10;
@@ -619,7 +641,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(spinner16, gbc);
+        addOrEditJPanel.add(widthSpinner, gbc);
         spanSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -638,15 +660,15 @@ public class GUI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(overlayTextField, gbc);
-        untiOfSizeLabel = new JLabel();
-        untiOfSizeLabel.setText("unit");
+        unitOfSizeLabel = new JLabel();
+        unitOfSizeLabel.setText("unit");
         gbc = new GridBagConstraints();
         gbc.gridx = 8;
         gbc.gridy = 4;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
-        addOrEditJPanel.add(untiOfSizeLabel, gbc);
+        addOrEditJPanel.add(unitOfSizeLabel, gbc);
         compositionLabel = new JLabel();
         compositionLabel.setText("current composition");
         gbc = new GridBagConstraints();
@@ -798,7 +820,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         addOrEditJPanel.add(garageLabel, gbc);
-        spinner1 = new JSpinner();
+        budgetSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 3;
@@ -807,7 +829,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(spinner1, gbc);
+        addOrEditJPanel.add(budgetSpinner, gbc);
         final JPanel spacer1 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
@@ -859,7 +881,7 @@ public class GUI {
         addOrEditJPanel.add(spacer7, gbc);
         searchJPanel = new JPanel();
         searchJPanel.setLayout(new GridBagLayout());
-        tabbedPane1.addTab("Search Projects", searchJPanel);
+        tabbedPane.addTab("Search Projects", searchJPanel);
         projectTypeSearchButton = new JButton();
         projectTypeSearchButton.setText("search by project type");
         gbc = new GridBagConstraints();
@@ -901,16 +923,7 @@ public class GUI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
         searchJPanel.add(projectTypeSearchJComboBox, gbc);
-        spinner2 = new JSpinner();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 11;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.BOTH;
-        searchJPanel.add(spinner2, gbc);
-        spinner3 = new JSpinner();
+        minCostRangeSearchSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 10;
@@ -918,26 +931,26 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
-        searchJPanel.add(spinner3, gbc);
-        final JLabel label1 = new JLabel();
-        label1.setText("min");
+        searchJPanel.add(minCostRangeSearchSpinner, gbc);
+        minCostRangeSearchLabel = new JLabel();
+        minCostRangeSearchLabel.setText("min");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 10;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.VERTICAL;
-        searchJPanel.add(label1, gbc);
-        final JLabel label2 = new JLabel();
-        label2.setText("max");
+        searchJPanel.add(minCostRangeSearchLabel, gbc);
+        maxCostRangeSearchLabel = new JLabel();
+        maxCostRangeSearchLabel.setText("max");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 11;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.VERTICAL;
-        searchJPanel.add(label2, gbc);
-        textField1 = new JTextField();
+        searchJPanel.add(maxCostRangeSearchLabel, gbc);
+        projectManagerSearchTextField = new JTextField();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 6;
@@ -946,8 +959,8 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
-        searchJPanel.add(textField1, gbc);
-        textArea1 = new JTextArea();
+        searchJPanel.add(projectManagerSearchTextField, gbc);
+        searchResultsTextArea = new JTextArea();
         gbc = new GridBagConstraints();
         gbc.gridx = 5;
         gbc.gridy = 1;
@@ -955,7 +968,7 @@ public class GUI {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
-        searchJPanel.add(textArea1, gbc);
+        searchJPanel.add(searchResultsTextArea, gbc);
         final JPanel spacer8 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
@@ -1022,13 +1035,22 @@ public class GUI {
         gbc.gridy = 6;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         searchJPanel.add(spacer18, gbc);
+        maxCostRangeSearchSpinner = new JSpinner();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 11;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.BOTH;
+        searchJPanel.add(maxCostRangeSearchSpinner, gbc);
     }
 
     /**
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return panel1;
+        return panel;
     }
 
 }

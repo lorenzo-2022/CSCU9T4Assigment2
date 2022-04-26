@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridBagLayout">
+  <grid id="27dc6" binding="panel" layout-manager="GridBagLayout">
     <constraints>
       <xy x="20" y="20" width="1323" height="574"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <tabbedpane id="17e1" binding="tabbedPane1">
+      <tabbedpane id="17e1" binding="tabbedPane">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="200"/>
@@ -344,7 +344,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="490bf" class="javax.swing.JSlider" binding="floodingRiskSlider">
+              <component id="bcef7" class="javax.swing.JSpinner" binding="floodingRiskSpinner">
                 <constraints>
                   <grid row="2" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -433,7 +433,7 @@
                   <text value="overlay"/>
                 </properties>
               </component>
-              <component id="98bf8" class="javax.swing.JSpinner" binding="spinner16" default-binding="true">
+              <component id="98bf8" class="javax.swing.JSpinner" binding="widthSpinner">
                 <constraints>
                   <grid row="10" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -456,7 +456,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="3d67c" class="javax.swing.JLabel" binding="untiOfSizeLabel">
+              <component id="3d67c" class="javax.swing.JLabel" binding="unitOfSizeLabel">
                 <constraints>
                   <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -605,7 +605,7 @@
                   <text value="garage"/>
                 </properties>
               </component>
-              <component id="6dbe6" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+              <component id="6dbe6" class="javax.swing.JSpinner" binding="budgetSpinner">
                 <constraints>
                   <grid row="3" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -700,21 +700,14 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="5071f" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
-                <constraints>
-                  <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="92c48" class="javax.swing.JSpinner" binding="spinner3" default-binding="true">
+              <component id="92c48" class="javax.swing.JSpinner" binding="minCostRangeSearchSpinner">
                 <constraints>
                   <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="d188a" class="javax.swing.JLabel">
+              <component id="d188a" class="javax.swing.JLabel" binding="minCostRangeSearchLabel">
                 <constraints>
                   <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -723,7 +716,7 @@
                   <text value="min"/>
                 </properties>
               </component>
-              <component id="df8cb" class="javax.swing.JLabel">
+              <component id="df8cb" class="javax.swing.JLabel" binding="maxCostRangeSearchLabel">
                 <constraints>
                   <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                   <gridbag weightx="1.0" weighty="1.0"/>
@@ -732,7 +725,7 @@
                   <text value="max"/>
                 </properties>
               </component>
-              <component id="6b3bc" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="6b3bc" class="javax.swing.JTextField" binding="projectManagerSearchTextField">
                 <constraints>
                   <grid row="6" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -741,7 +734,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="5e9ed" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+              <component id="5e9ed" class="javax.swing.JTextArea" binding="searchResultsTextArea">
                 <constraints>
                   <grid row="1" column="5" row-span="11" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
@@ -816,6 +809,13 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
               </hspacer>
+              <component id="5071f" class="javax.swing.JSpinner" binding="maxCostRangeSearchSpinner">
+                <constraints>
+                  <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="1.0"/>
+                </constraints>
+                <properties/>
+              </component>
             </children>
           </grid>
         </children>
