@@ -92,37 +92,24 @@ public class UI {
     /**main method: program start*/
     public static void main(String[] args) {
         ProjectManager PM = new ProjectManager();
-
-        JFrame frame = new JFrame("Jenga Design Ltd. Portfolio Manager");
-        frame.setContentPane(new UI().panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
-        //UI GUI = new UI(); //I think I need this line
-        //Actually I don't think I do because the UI object is constructed in the main method now
-        pre_fill();
+        UI GUI = new UI();
     }
 
     /**object constructor*/
     public UI() {
-        //this stuff must go in main method or setContentPane calls itself forever
-        /*
+        setLAndF();
+        setupGUI(); //this initialises all the GUI components (variables)
         JFrame frame = new JFrame("Jenga Design Ltd. Portfolio Manager");
-        frame.setContentPane(panel1);
+        frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        */
-
-        setLAndF();
-
-        setupGUI();
+        pre_fill();
 
         projectTypeJComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                check_fields();
             }
         });
         editProjectButton.addActionListener(new ActionListener() {
@@ -159,12 +146,13 @@ public class UI {
 
     /**object methods*/
 
-    private static void pre_fill() {
+    private void pre_fill() {
         //pre-fill and do stuff for when program first starts up
+        //projectTypeJComboBox
         check_fields();
     }
 
-    private static void check_fields() {
+    private void check_fields() {
         //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
     }
 
