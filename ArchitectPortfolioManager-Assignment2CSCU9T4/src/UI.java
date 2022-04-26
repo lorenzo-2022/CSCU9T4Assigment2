@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class UI {
     /**object variables*/
@@ -155,25 +154,85 @@ public class UI {
 
     private void check_fields() {
         //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
+        //clearAllProjectFields();
+        disableAllProjectSpecificFields();
         if (projectTypeJComboBox.getSelectedItem().equals("House")){
             //set up GUI for house projects
-            typeTextField.setEditable(true);
-            floodingRiskSpinner.setVisible(true);
-            buildingMaterialTextField.setEditable(true);
-            sizeSpinner.setVisible(true);
+            typeTextField.setEnabled(true);
+            floodingRiskSpinner.setEnabled(true);
+            buildingMaterialTextField.setEnabled(true);
+            sizeSpinner.setEnabled(true);
+            unitOfSizeLabel.setEnabled(true);
             unitOfSizeLabel.setText("m**2");
-            //bedroomsSpinner.setEditor(new JSpinner.DefaultEditor(bedroomsSpinner));
-            ((JSpinner.DefaultEditor) bedroomsSpinner.getEditor()).getTextField().setEditable(false);
+            //((JSpinner.DefaultEditor) bedroomsSpinner.getEditor()).getTextField().setEditable(false);
+            bedroomsSpinner.setEnabled(true);
+            landSizeAcresSpinner.setEnabled(true);
+            bathroomsSpinner.setEnabled(true);
+            garageCheckBox.setEnabled(true);
+            roofTextField.setEnabled(true);
         }
         if (projectTypeJComboBox.getSelectedItem().equals("Bridge")){
             //set GUI up for bridge projects
+            typeTextField.setEnabled(true);
+            floodingRiskSpinner.setEnabled(true);
+            buildingMaterialTextField.setEnabled(true);
+            widthSpinner.setEnabled(true);
+            overlayTextField.setEnabled(true);
+            spanSpinner.setEnabled(true);
         }
         if (projectTypeJComboBox.getSelectedItem().equals("Tunnel")){
             //set GUI up for tunnel projects
+            widthSpinner.setEnabled(true);
+            overlayTextField.setEnabled(true);
+            excavatingTextField.setEnabled(true);
+            safetyTunnelCheckBox.setEnabled(true);
+            lengthSpinner.setEnabled(true);
+            groundStabilitySpinner.setEnabled(true);
         }
         if (projectTypeJComboBox.getSelectedItem().equals("Land")){
             //set GUI up for land projects
+            sizeSpinner.setEnabled(true);
+            unitOfSizeLabel.setEnabled(true);
+            unitOfSizeLabel.setText("acres");
+            compositionTextField.setEnabled(true);
+            natureReserveCheckBox.setEnabled(true);
         }
+    }
+
+    private void disableAllProjectSpecificFields() {
+        /*
+        classificationTextField.setEnabled(false);
+        budgetSpinner.setEnabled(false);
+        managerTextField.setEnabled(false);
+        locationTextField.setEnabled(false);
+        newNotRenovationCheckBox.setEnabled(false);
+        customerIDTextField.setEnabled(false);
+        estimatedDurationSpinner.setEnabled(false);
+        estimatedStartSpinner.setEnabled(false);
+        actualStartSpinner.setEnabled(false);
+        actualEndSpinner.setEnabled(false);
+        accumulatedCostSpinner.setEnabled(false);
+        */
+        typeTextField.setEnabled(false);
+        floodingRiskSpinner.setEnabled(false);
+        buildingMaterialTextField.setEnabled(false);
+        sizeSpinner.setEnabled(false);
+        unitOfSizeLabel.setText("unit");
+        unitOfSizeLabel.setEnabled(false);
+        bedroomsSpinner.setEnabled(false);
+        landSizeAcresSpinner.setEnabled(false);
+        bathroomsSpinner.setEnabled(false);
+        garageCheckBox.setEnabled(false);
+        roofTextField.setEnabled(false);
+        widthSpinner.setEnabled(false);
+        spanSpinner.setEnabled(false);
+        overlayTextField.setEnabled(false);
+        compositionTextField.setEnabled(false);
+        natureReserveCheckBox.setEnabled(false);
+        excavatingTextField.setEnabled(false);
+        safetyTunnelCheckBox.setEnabled(false);
+        lengthSpinner.setEnabled(false);
+        groundStabilitySpinner.setEnabled(false);
     }
 
     private void setupGUI() {
@@ -182,10 +241,9 @@ public class UI {
         SpinnerModel accumulatedCostSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
 
         //spinner date models
-        Date today = new Date();
-        SpinnerModel actualStartSpinnerModel = new SpinnerDateModel(today, null, null, Calendar.DAY_OF_WEEK);
-        SpinnerModel actualEndSpinnerModel = new SpinnerNumberModel(1, 1, 31, 1);
-        SpinnerModel estimatedStartSpinnerModel = new SpinnerNumberModel(1, 1, 12, 1);
+        SpinnerDateModel actualStartSpinnerModel = new SpinnerDateModel();
+        SpinnerModel actualEndSpinnerModel = new SpinnerDateModel();
+        SpinnerModel estimatedStartSpinnerModel = new SpinnerDateModel();
 
         SpinnerModel floodingRiskSpinnerModel = new SpinnerNumberModel(0, 0, 10, 1);
         SpinnerModel sizeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
@@ -1022,6 +1080,12 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
         searchJPanel.add(maxCostRangeSearchSpinner, gbc);
+
+        //setting JSpinner date editors to show date only
+        SimpleDateFormat model = new SimpleDateFormat("dd.MM.yy");
+        actualStartSpinner.setEditor(new JSpinner.DateEditor(actualStartSpinner, model.toPattern()));
+        actualEndSpinner.setEditor(new JSpinner.DateEditor(actualEndSpinner, model.toPattern()));
+        estimatedStartSpinner.setEditor(new JSpinner.DateEditor(estimatedStartSpinner, model.toPattern()));
     }
 
     private void setLAndF() {
