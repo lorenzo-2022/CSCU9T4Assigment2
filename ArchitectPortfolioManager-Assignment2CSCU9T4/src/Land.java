@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Calendar;
 
 public class Land extends Project{
@@ -31,6 +32,17 @@ public class Land extends Project{
     }
 
     /**object methods*/
+
+    @Override
+    public boolean isCorrect() {
+        boolean isCorrect = super.isCorrect();
+        if (this.currentComposition.equals("")){
+            JOptionPane.showMessageDialog(null, "Current composition cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        return isCorrect;
+    }
+
     /**getters and setters*/
     public int getSize_acres() {
         return size_acres;

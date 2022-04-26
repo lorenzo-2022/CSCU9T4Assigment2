@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Calendar;
 
 public class Bridge extends Project{
@@ -37,6 +38,25 @@ public class Bridge extends Project{
     }
 
     /**object methods*/
+
+    @Override
+    public boolean isCorrect() {
+        boolean isCorrect = super.isCorrect();
+        if (this.type.equals("")){
+            JOptionPane.showMessageDialog(null, "Bridge type cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        if (this.buildingMaterial.equals("")){
+            JOptionPane.showMessageDialog(null, "Building Materials cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        if (this.overlay.equals("")){
+            JOptionPane.showMessageDialog(null, "Overlay cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        return isCorrect;
+    }
+
     /**getters and setters*/
     public String getType() {
         return type;

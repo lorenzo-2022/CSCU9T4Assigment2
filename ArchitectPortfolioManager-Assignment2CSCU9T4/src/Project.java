@@ -132,7 +132,34 @@ public class Project {
 
     public boolean isCorrect() {
         boolean isCorrect = true;
-        JOptionPane.showMessageDialog(null, "warning", "warning title", JOptionPane.WARNING_MESSAGE);
+        if (this.projectType.equals(null)){
+            JOptionPane.showMessageDialog(null, "Project type cannot be null.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.projectClassification.equals("")){
+            JOptionPane.showMessageDialog(null, "Project classification cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.projectManager.equals("")){
+            JOptionPane.showMessageDialog(null, "Project manager cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.location.equals("")){
+            JOptionPane.showMessageDialog(null, "Location cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.customerID.equals("")){
+            JOptionPane.showMessageDialog(null, "Customer ID cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.estimatedStart.after(this.actualStart)){ //Assuming estimated start cannot be after actual start seeing as all projects follow this rule.
+            JOptionPane.showMessageDialog(null, "Actual start cannot be before estimated start.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.actualEnd.before(this.actualStart)){
+            JOptionPane.showMessageDialog(null, "Actual end cannot be before actual start.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
         return isCorrect;
     }
 }

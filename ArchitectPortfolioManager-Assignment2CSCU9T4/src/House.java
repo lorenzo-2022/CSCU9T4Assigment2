@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Calendar;
 
 public class House extends Project{
@@ -43,6 +44,26 @@ public class House extends Project{
     }
 
     /**object methods*/
+
+    @Override
+    public boolean isCorrect() {
+        boolean isCorrect = super.isCorrect();
+        if (this.type.equals("")){
+            JOptionPane.showMessageDialog(null, "House type cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        if (this.buildingMaterial.equals("")){
+            JOptionPane.showMessageDialog(null, "Building Materials cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        //allow building size to be zero to allow flexibility to the architecture firm
+        if (this.roof.equals("")){
+            JOptionPane.showMessageDialog(null, "Roof cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        return isCorrect;
+    }
+
     /**getters and setters*/
     public String getType() {
         return type;

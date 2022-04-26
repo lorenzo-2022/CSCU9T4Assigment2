@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Calendar;
 
 public class Tunnel extends Project{
@@ -38,6 +39,21 @@ public class Tunnel extends Project{
 
 
     /**object methods*/
+
+    @Override
+    public boolean isCorrect() {
+        boolean isCorrect = super.isCorrect();
+        if (this.overlay.equals("")){
+            JOptionPane.showMessageDialog(null, "Overlay cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        if (this.excavating.equals("")){
+            JOptionPane.showMessageDialog(null, "Excavating cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect = false;
+        }
+        return isCorrect;
+    }
+
     /**getters and setters*/
     public int getWidthInMetres() {
         return widthInMetres;
