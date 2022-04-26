@@ -93,6 +93,7 @@ public class UI {
     public static void main(String[] args) {
         ProjectManager PM = new ProjectManager();
         UI GUI = new UI();
+        GUI.pre_fill();
     }
 
     /**object constructor*/
@@ -104,7 +105,7 @@ public class UI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        pre_fill();
+        //pre_fill();
 
         projectTypeJComboBox.addActionListener(new ActionListener() {
             @Override
@@ -146,9 +147,9 @@ public class UI {
 
     /**object methods*/
 
-    private void pre_fill() {
+    private void pre_fill(ProjectManager pm) {
         //pre-fill and do stuff for when program first starts up
-        //projectTypeJComboBox
+        projectTypeJComboBox.addItem(pm.get);
         check_fields();
     }
 

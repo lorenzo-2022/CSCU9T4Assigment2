@@ -37,4 +37,52 @@ public class Bridge extends Project{
     }
 
     /**object methods*/
+    /**getters and setters*/
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getFloodingRisk() {
+        return floodingRisk;
+    }
+
+    public void setFloodingRisk(int floodingRisk) {
+        this.floodingRisk = floodingRisk;
+    }
+
+    public String getBuildingMaterial() {
+        return buildingMaterial;
+    }
+
+    public void setBuildingMaterial(String buildingMaterial) {
+        this.buildingMaterial = buildingMaterial;
+    }
+
+    public int getWidthInMetres() {
+        return widthInMetres;
+    }
+
+    public void setWidthInMetres(int widthInMetres) {
+        this.widthInMetres = widthInMetres;
+    }
+
+    public String getOverlay() {
+        return overlay;
+    }
+
+    public void setOverlay(String overlay) {
+        this.overlay = overlay;
+    }
+
+    public int getSpanInMetres() {
+        return spanInMetres;
+    }
+
+    public void setSpanInMetres(int spanInMetres) {
+        this.spanInMetres = spanInMetres;
+    }
 }

@@ -43,4 +43,76 @@ public class House extends Project{
     }
 
     /**object methods*/
+    /**getters and setters*/
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getFloodingRisk() {
+        return floodingRisk;
+    }
+
+    public void setFloodingRisk(int floodingRisk) {
+        this.floodingRisk = floodingRisk;
+    }
+
+    public String getBuildingMaterial() {
+        return buildingMaterial;
+    }
+
+    public void setBuildingMaterial(String buildingMaterial) {
+        this.buildingMaterial = buildingMaterial;
+    }
+
+    public int getSize_m2() {
+        return size_m2;
+    }
+
+    public void setSize_m2(int size_m2) {
+        this.size_m2 = size_m2;
+    }
+
+    public int getBedrooms() {
+        return bedrooms;
+    }
+
+    public void setBedrooms(int bedrooms) {
+        this.bedrooms = bedrooms;
+    }
+
+    public float getLandSizeAcres() {
+        return landSizeAcres;
+    }
+
+    public void setLandSizeAcres(float landSizeAcres) {
+        this.landSizeAcres = landSizeAcres;
+    }
+
+    public int getBathrooms() {
+        return bathrooms;
+    }
+
+    public void setBathrooms(int bathrooms) {
+        this.bathrooms = bathrooms;
+    }
+
+    public boolean isGarage() {
+        return garage;
+    }
+
+    public void setGarage(boolean garage) {
+        this.garage = garage;
+    }
+
+    public String getRoof() {
+        return roof;
+    }
+
+    public void setRoof(String roof) {
+        this.roof = roof;
+    }
 }

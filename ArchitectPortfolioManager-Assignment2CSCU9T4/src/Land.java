@@ -31,4 +31,28 @@ public class Land extends Project{
     }
 
     /**object methods*/
+    /**getters and setters*/
+    public int getSize_acres() {
+        return size_acres;
+    }
+
+    public void setSize_acres(int size_acres) {
+        this.size_acres = size_acres;
+    }
+
+    public String getCurrentComposition() {
+        return currentComposition;
+    }
+
+    public void setCurrentComposition(String currentComposition) {
+        this.currentComposition = currentComposition;
+    }
+
+    public boolean isNatureReserve() {
+        return natureReserve;
+    }
+
+    public void setNatureReserve(boolean natureReserve) {
+        this.natureReserve = natureReserve;
+    }
 }

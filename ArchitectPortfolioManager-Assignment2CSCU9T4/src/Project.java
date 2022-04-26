@@ -32,4 +32,100 @@ public class Project {
     }
 
     /**object methods*/
+    /**getters*/
+    public String getProjectType() {
+        return projectType;
+    }
+
+    public String getProjectClassification() {
+        return projectClassification;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public String getProjectManager() {
+        return projectManager;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public boolean isNewNotRenovation() {
+        return newNotRenovation;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public int getEstimatedDuration() {
+        return estimatedDuration;
+    }
+
+    public Calendar getEstimatedStart() {
+        return estimatedStart;
+    }
+
+    public Calendar getActualStart() {
+        return actualStart;
+    }
+
+    public Calendar getActualEnd() {
+        return actualEnd;
+    }
+
+    public int getAccumulatedCost() {
+        return accumulatedCost;
+    }
+    /**setters*/
+    public void setProjectType(String projectType) {
+        this.projectType = projectType;
+    }
+
+    public void setProjectClassification(String projectClassification) {
+        this.projectClassification = projectClassification;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
+    }
+
+    public void setProjectManager(String projectManager) {
+        this.projectManager = projectManager;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setNewNotRenovation(boolean newNotRenovation) {
+        this.newNotRenovation = newNotRenovation;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+
+    public void setEstimatedDuration(int estimatedDuration) {
+        this.estimatedDuration = estimatedDuration;
+    }
+
+    public void setEstimatedStart(Calendar estimatedStart) {
+        this.estimatedStart = estimatedStart;
+    }
+
+    public void setActualStart(Calendar actualStart) {
+        this.actualStart = actualStart;
+    }
+
+    public void setActualEnd(Calendar actualEnd) {
+        this.actualEnd = actualEnd;
+    }
+
+    public void setAccumulatedCost(int accumulatedCost) {
+        this.accumulatedCost = accumulatedCost;
+    }
 }

@@ -38,4 +38,52 @@ public class Tunnel extends Project{
 
 
     /**object methods*/
+    /**getters and setters*/
+    public int getWidthInMetres() {
+        return widthInMetres;
+    }
+
+    public void setWidthInMetres(int widthInMetres) {
+        this.widthInMetres = widthInMetres;
+    }
+
+    public String getOverlay() {
+        return overlay;
+    }
+
+    public void setOverlay(String overlay) {
+        this.overlay = overlay;
+    }
+
+    public String getExcavating() {
+        return excavating;
+    }
+
+    public void setExcavating(String excavating) {
+        this.excavating = excavating;
+    }
+
+    public boolean isSafetyTunnel() {
+        return safetyTunnel;
+    }
+
+    public void setSafetyTunnel(boolean safetyTunnel) {
+        this.safetyTunnel = safetyTunnel;
+    }
+
+    public int getLengthInMetres() {
+        return lengthInMetres;
+    }
+
+    public void setLengthInMetres(int lengthInMetres) {
+        this.lengthInMetres = lengthInMetres;
+    }
+
+    public int getGroundStructuralStability() {
+        return groundStructuralStability;
+    }
+
+    public void setGroundStructuralStability(int groundStructuralStability) {
+        this.groundStructuralStability = groundStructuralStability;
+    }
 }
