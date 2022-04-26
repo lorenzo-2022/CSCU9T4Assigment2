@@ -191,69 +191,6 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="db235" class="javax.swing.JSpinner" binding="actualStartDaySpinner">
-                <constraints>
-                  <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="d5dc9" class="javax.swing.JSpinner" binding="actualStartMonthSpinner">
-                <constraints>
-                  <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="26aa4" class="javax.swing.JSpinner" binding="actualStartYearSpinner">
-                <constraints>
-                  <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="dd4c4" class="javax.swing.JSpinner" binding="actualEndDaySpinner">
-                <constraints>
-                  <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="9a959" class="javax.swing.JSpinner" binding="estimatedStartDaySpinner">
-                <constraints>
-                  <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="43ba" class="javax.swing.JSpinner" binding="estimatedStartMonthSpinner">
-                <constraints>
-                  <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="d31e1" class="javax.swing.JSpinner" binding="actualEndMonthSpinner">
-                <constraints>
-                  <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="c90c3" class="javax.swing.JSpinner" binding="estimatedStartYearSpinner">
-                <constraints>
-                  <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="13d75" class="javax.swing.JSpinner" binding="actualEndYearSpinner">
-                <constraints>
-                  <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                  <gridbag weightx="1.0" weighty="1.0"/>
-                </constraints>
-                <properties/>
-              </component>
               <component id="302c5" class="javax.swing.JLabel" binding="typeLabel">
                 <constraints>
                   <grid row="1" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -654,6 +591,27 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
               </vspacer>
+              <component id="be563" class="javax.swing.JSpinner" binding="estimatedStartSpinner">
+                <constraints>
+                  <grid row="9" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="1082f" class="javax.swing.JSpinner" binding="actualStartSpinner">
+                <constraints>
+                  <grid row="10" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="3ab7b" class="javax.swing.JSpinner" binding="actualEndSpinner">
+                <constraints>
+                  <grid row="11" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
             </children>
           </grid>
           <grid id="f406d" binding="searchJPanel" layout-manager="GridBagLayout">

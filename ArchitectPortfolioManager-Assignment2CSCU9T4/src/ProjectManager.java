@@ -183,4 +183,21 @@ public class ProjectManager {
     private void addProject(Project project) {
         projects.add(project);
     }
+
+    /**getters and setters*/
+    public String getInputFileName() {
+        return inputFileName;
+    }
+
+    public void setInputFileName(String inputFileName) {
+        this.inputFileName = inputFileName;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 }

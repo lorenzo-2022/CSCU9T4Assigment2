@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
 public class UI {
     /**object variables*/
@@ -31,15 +33,6 @@ public class UI {
     private JCheckBox newNotRenovationCheckBox;
     private JSpinner estimatedDurationSpinner;
     private JSpinner accumulatedCostSpinner;
-    private JSpinner actualStartDaySpinner;
-    private JSpinner actualStartMonthSpinner;
-    private JSpinner actualStartYearSpinner;
-    private JSpinner actualEndDaySpinner;
-    private JSpinner estimatedStartDaySpinner;
-    private JSpinner estimatedStartMonthSpinner;
-    private JSpinner actualEndMonthSpinner;
-    private JSpinner estimatedStartYearSpinner;
-    private JSpinner actualEndYearSpinner;
     private JTextField typeTextField;
     private JSpinner floodingRiskSpinner;
     private JTextField buildingMaterialTextField;
@@ -77,7 +70,7 @@ public class UI {
     private JLabel safetyTunnelLabel;
     private JLabel lengthLabel;
     private JLabel groundStabilityLabel;
-    private JSpinner budgetSpinner; //budget spinner
+    private JSpinner budgetSpinner;
     private JComboBox projectTypeSearchJComboBox;
     private JButton projectTypeSearchButton;
     private JButton costRangeSearchButton;
@@ -88,12 +81,15 @@ public class UI {
     private JTextArea searchResultsTextArea;
     private JLabel minCostRangeSearchLabel;
     private JLabel maxCostRangeSearchLabel;
+    private JSpinner estimatedStartSpinner;
+    private JSpinner actualStartSpinner;
+    private JSpinner actualEndSpinner;
+    ProjectManager PM = new ProjectManager();
 
     /**main method: program start*/
     public static void main(String[] args) {
-        ProjectManager PM = new ProjectManager();
+        //ProjectManager PM = new ProjectManager(); //added this to UI object variables instead so i can access it in UI constructor for pre_fill method
         UI GUI = new UI();
-        GUI.pre_fill();
     }
 
     /**object constructor*/
@@ -105,7 +101,7 @@ public class UI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        //pre_fill();
+        pre_fill(PM);
 
         projectTypeJComboBox.addActionListener(new ActionListener() {
             @Override
@@ -149,15 +145,62 @@ public class UI {
 
     private void pre_fill(ProjectManager pm) {
         //pre-fill and do stuff for when program first starts up
-        projectTypeJComboBox.addItem(pm.get);
+        projectTypeJComboBox.removeAllItems();
+        projectTypeJComboBox.addItem("House");
+        projectTypeJComboBox.addItem("Bridge");
+        projectTypeJComboBox.addItem("Tunnel");
+        projectTypeJComboBox.addItem("Land");
         check_fields();
     }
 
     private void check_fields() {
         //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
+        if (projectTypeJComboBox.getSelectedItem().equals("House")){
+            //set up GUI for house projects
+            typeTextField.setEditable(true);
+            floodingRiskSpinner.setVisible(true);
+            buildingMaterialTextField.setEditable(true);
+            sizeSpinner.setVisible(true);
+            unitOfSizeLabel.setText("m**2");
+            //bedroomsSpinner.setEditor(new JSpinner.DefaultEditor(bedroomsSpinner));
+            ((JSpinner.DefaultEditor) bedroomsSpinner.getEditor()).getTextField().setEditable(false);
+        }
+        if (projectTypeJComboBox.getSelectedItem().equals("Bridge")){
+            //set GUI up for bridge projects
+        }
+        if (projectTypeJComboBox.getSelectedItem().equals("Tunnel")){
+            //set GUI up for tunnel projects
+        }
+        if (projectTypeJComboBox.getSelectedItem().equals("Land")){
+            //set GUI up for land projects
+        }
     }
 
     private void setupGUI() {
+        //spinner models
+        SpinnerModel estimatedDurationSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel accumulatedCostSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+
+        //spinner date models
+        Date today = new Date();
+        SpinnerModel actualStartSpinnerModel = new SpinnerDateModel(today, null, null, Calendar.DAY_OF_WEEK);
+        SpinnerModel actualEndSpinnerModel = new SpinnerNumberModel(1, 1, 31, 1);
+        SpinnerModel estimatedStartSpinnerModel = new SpinnerNumberModel(1, 1, 12, 1);
+
+        SpinnerModel floodingRiskSpinnerModel = new SpinnerNumberModel(0, 0, 10, 1);
+        SpinnerModel sizeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel bedroomsSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel bathroomsSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel landSizeAcresSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 0.1);
+        SpinnerModel widthSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 5);
+        SpinnerModel spanSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 5);
+        SpinnerModel lengthSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel groundStabilitySpinnerModel = new SpinnerNumberModel(0, 0, 100, 1);
+        SpinnerModel budgetSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel minCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+        SpinnerModel maxCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+
+
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         tabbedPane = new JTabbedPane();
@@ -323,8 +366,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(customerIDTextField, gbc);
-        //estimated duration spinner
-        SpinnerModel estimatedDurationSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         estimatedDurationSpinner = new JSpinner(estimatedDurationSpinnerModel);
         estimatedDurationSpinner.setInheritsPopupMenu(true);
         estimatedDurationSpinner.setRequestFocusEnabled(true);
@@ -338,8 +379,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(estimatedDurationSpinner, gbc);
-        //accumulated cost spinner
-        SpinnerModel accumulatedCostSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         accumulatedCostSpinner = new JSpinner(accumulatedCostSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
@@ -350,96 +389,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(accumulatedCostSpinner, gbc);
-        SpinnerModel actualStartDaySpinnerModel = new SpinnerNumberModel(1, 1, 31, 1);
-        actualStartDaySpinner = new JSpinner(actualStartDaySpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 10;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualStartDaySpinner, gbc);
-        SpinnerModel actualStartMonthSpinnerModel = new SpinnerNumberModel(1, 1, 12, 1);
-        actualStartMonthSpinner = new JSpinner(actualStartMonthSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4;
-        gbc.gridy = 10;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualStartMonthSpinner, gbc);
-        SpinnerModel actualStartYearSpinnerModel = new SpinnerNumberModel(2022, 1900, 2200, 1);
-        actualStartYearSpinner = new JSpinner(actualStartYearSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 5;
-        gbc.gridy = 10;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualStartYearSpinner, gbc);
-        SpinnerModel actualEndDaySpinnerModel = new SpinnerNumberModel(1, 1, 31, 1);
-        actualEndDaySpinner = new JSpinner(actualEndDaySpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 11;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualEndDaySpinner, gbc);
-        SpinnerModel estimatedStartDaySpinnerModel = new SpinnerNumberModel(1, 1, 31, 1);
-        estimatedStartDaySpinner = new JSpinner(estimatedStartDaySpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 9;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(estimatedStartDaySpinner, gbc);
-        SpinnerModel estimatedStartMonthSpinnerModel = new SpinnerNumberModel(1, 1, 12, 1);
-        estimatedStartMonthSpinner = new JSpinner(estimatedStartMonthSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4;
-        gbc.gridy = 9;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(estimatedStartMonthSpinner, gbc);
-        SpinnerModel actualEndMonthSpinnerModel = new SpinnerNumberModel(1, 1, 12, 1);
-        actualEndMonthSpinner = new JSpinner(actualEndMonthSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4;
-        gbc.gridy = 11;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualEndMonthSpinner, gbc);
-        SpinnerModel estimatedStartYearSpinnerModel = new SpinnerNumberModel(2022, 1900, 2200, 1);
-        estimatedStartYearSpinner = new JSpinner(estimatedStartYearSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 5;
-        gbc.gridy = 9;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(estimatedStartYearSpinner, gbc);
-        SpinnerModel estimatedEndYearSpinnerModel = new SpinnerNumberModel(2022, 1900, 2200, 1);
-        actualEndYearSpinner = new JSpinner(estimatedEndYearSpinnerModel);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 5;
-        gbc.gridy = 11;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(actualEndYearSpinner, gbc);
         typeLabel = new JLabel();
         typeLabel.setText("type");
         gbc = new GridBagConstraints();
@@ -536,7 +485,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(typeTextField, gbc);
-        SpinnerModel floodingRiskSpinnerModel = new SpinnerNumberModel(0, 0, 10, 1);
         floodingRiskSpinner = new JSpinner(floodingRiskSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -555,7 +503,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(buildingMaterialTextField, gbc);
-        SpinnerModel sizeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         sizeSpinner = new JSpinner(sizeSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -565,7 +512,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(sizeSpinner, gbc);
-        SpinnerModel bedroomsSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         bedroomsSpinner = new JSpinner(bedroomsSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -575,7 +521,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(bedroomsSpinner, gbc);
-        SpinnerModel bathroomsSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         bathroomsSpinner = new JSpinner(bathroomsSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -585,7 +530,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(bathroomsSpinner, gbc);
-        SpinnerModel landSizeAcresSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 0.1);
         landSizeAcresSpinner = new JSpinner(landSizeAcresSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -643,7 +587,6 @@ public class UI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         addOrEditJPanel.add(overlayLabel, gbc);
-        SpinnerModel widthSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 5);
         widthSpinner = new JSpinner(widthSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -653,7 +596,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(widthSpinner, gbc);
-        SpinnerModel spanSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 5);
         spanSpinner = new JSpinner(spanSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 9;
@@ -746,7 +688,6 @@ public class UI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         addOrEditJPanel.add(safetyTunnelCheckBox, gbc);
-        SpinnerModel lengthSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         lengthSpinner = new JSpinner(lengthSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 12;
@@ -756,7 +697,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(lengthSpinner, gbc);
-        SpinnerModel groundStabilitySpinnerModel = new SpinnerNumberModel(0, 0, 100, 1);
         groundStabilitySpinner = new JSpinner(groundStabilitySpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 12;
@@ -834,7 +774,6 @@ public class UI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         addOrEditJPanel.add(garageLabel, gbc);
-        SpinnerModel budgetSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         budgetSpinner = new JSpinner(budgetSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
@@ -894,6 +833,30 @@ public class UI {
         gbc.gridwidth = 12;
         gbc.fill = GridBagConstraints.VERTICAL;
         addOrEditJPanel.add(spacer7, gbc);
+        estimatedStartSpinner = new JSpinner(estimatedStartSpinnerModel);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 9;
+        gbc.gridwidth = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        addOrEditJPanel.add(estimatedStartSpinner, gbc);
+        actualStartSpinner = new JSpinner(actualStartSpinnerModel);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 10;
+        gbc.gridwidth = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        addOrEditJPanel.add(actualStartSpinner, gbc);
+        actualEndSpinner = new JSpinner(actualEndSpinnerModel);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 11;
+        gbc.gridwidth = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        addOrEditJPanel.add(actualEndSpinner, gbc);
         searchJPanel = new JPanel();
         searchJPanel.setLayout(new GridBagLayout());
         tabbedPane.addTab("Search Projects", searchJPanel);
@@ -938,7 +901,6 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
         searchJPanel.add(projectTypeSearchJComboBox, gbc);
-        SpinnerModel minCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         minCostRangeSearchSpinner = new JSpinner(minCostRangeSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
@@ -1051,7 +1013,6 @@ public class UI {
         gbc.gridy = 6;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         searchJPanel.add(spacer18, gbc);
-        SpinnerModel maxCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         maxCostRangeSearchSpinner = new JSpinner(maxCostRangeSpinnerModel);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
