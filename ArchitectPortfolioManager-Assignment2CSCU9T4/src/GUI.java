@@ -90,7 +90,7 @@ public class GUI {
     private JPanel searchJPanel;
     private JPanel addOrEditJPanel;
     private JCheckBox newNotRenovationCheckBox;
-    private JSpinner estimatedDurationSlider;
+    private JSpinner estimatedDurationSpinner;
     private JSpinner accumulatedCostSpinner;
     private JSpinner actualStartDaySpinner;
     private JSpinner actualStartMonthSpinner;
@@ -331,10 +331,10 @@ public class GUI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         addOrEditJPanel.add(customerIDTextField, gbc);
-        estimatedDurationSlider = new JSpinner();
-        estimatedDurationSlider.setInheritsPopupMenu(true);
-        estimatedDurationSlider.setRequestFocusEnabled(true);
-        estimatedDurationSlider.setVisible(true);
+        estimatedDurationSpinner = new JSpinner();
+        estimatedDurationSpinner.setInheritsPopupMenu(true);
+        estimatedDurationSpinner.setRequestFocusEnabled(true);
+        estimatedDurationSpinner.setVisible(true);
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 8;
@@ -343,7 +343,7 @@ public class GUI {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        addOrEditJPanel.add(estimatedDurationSlider, gbc);
+        addOrEditJPanel.add(estimatedDurationSpinner, gbc);
         accumulatedCostSpinner = new JSpinner();
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
