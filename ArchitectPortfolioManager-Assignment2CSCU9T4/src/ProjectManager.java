@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ProjectManager {
 
@@ -180,7 +181,7 @@ public class ProjectManager {
         return calendar;
     }
 
-    private void addProject(Project project) {
+    public void addProject(Project project) {
         projects.add(project);
     }
 
@@ -199,5 +200,20 @@ public class ProjectManager {
 
     public void setProjects(List<Project> projects) {
         this.projects = projects;
+    }
+
+    public boolean isUnique(Project project) {
+        boolean isUnique = true;
+
+        ListIterator<Project> projectListIterator = projects.listIterator();
+
+        while (projectListIterator.hasNext()){
+            Project currentProject = projectListIterator.next();
+
+            if (currentProject.getCustomerID().equals(project.getCustomerID())) {
+                isUnique = false;
+            }
+        }
+        return isUnique;
     }
 }

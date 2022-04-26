@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class UI {
     /**object variables*/
@@ -105,19 +107,22 @@ public class UI {
         projectTypeJComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                check_fields();
+                enableOrDisableProjectSpecificFields();
             }
         });
         editProjectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //constructing the inserted object and changing object in project manager if it exists
 
             }
         });
         addProjectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //constructing the object and adding it to the projects array list
+                Project newProject = generateProjectFromFields();
+                addProject(newProject);
             }
         });
         projectTypeSearchButton.addActionListener(new ActionListener() {
@@ -139,8 +144,91 @@ public class UI {
             }
         });
     }
-
     /**object methods*/
+
+    private Project generateProjectFromFields() {
+        Project project = null; //project that will be generated
+
+        //new project property values
+        String selectedProjectType = (String) projectTypeJComboBox.getSelectedItem();
+        String projectType = selectedProjectType;
+        String typeClassification = classificationTextField.getText();
+        int budget = (int) budgetSpinner.getValue();
+        String projectManager = managerTextField.getText();
+        String location = locationTextField.getText();
+        boolean newNotRenovation = newNotRenovationCheckBox.isSelected();
+        String customerID = customerIDTextField.getText();
+        //checking if customer ID is unique
+        int estimatedDuration = (int) estimatedDurationSpinner.getValue();
+        Calendar estimatedStart = toCalendar((Date) estimatedStartSpinner.getValue());
+        Calendar actualStart = toCalendar((Date) actualStartSpinner.getValue());
+        Calendar actualEnd = toCalendar((Date) actualEndSpinner.getValue());
+        int accumulatedCost = (int) accumulatedCostSpinner.getValue();
+        //project type specific property values
+        //house
+        String type = typeTextField.getText();
+        int floodingRisk = (int) floodingRiskSpinner.getValue();
+        String buildingMaterial = buildingMaterialTextField.getText();
+        int size = (int) sizeSpinner.getValue();
+        int bedrooms = (int) bedroomsSpinner.getValue();
+        double landSizeDouble = (double) landSizeAcresSpinner.getValue();
+        float landSize = (float) landSizeDouble;
+        int bathrooms = (int) bathroomsSpinner.getValue();
+        boolean garage = garageCheckBox.isSelected();
+        String roof = roofTextField.getText();
+        //bridge extra properties
+        int width = (int) widthSpinner.getValue();
+        String overlay = overlayTextField.getText();
+        int span = (int) spanSpinner.getValue();
+        //tunnel extra properties
+        String excavating = excavatingTextField.getText();
+        boolean safetyTunnel = safetyTunnelCheckBox.isSelected();
+        int length = (int) lengthSpinner.getValue();
+        int groundStructuralStability = (int) groundStabilitySpinner.getValue();
+        //land extra properties
+        String currentComposition = compositionTextField.getText();
+        boolean natureReserve = natureReserveCheckBox.isSelected();
+
+        if (selectedProjectType.equals("House")){
+            //create and add house object to Project Manager array list
+            project = new House(projectType, typeClassification, budget, projectManager, location, newNotRenovation,
+                    customerID, estimatedDuration, estimatedStart, actualStart, actualEnd, accumulatedCost,
+                    type, floodingRisk, buildingMaterial, size, bedrooms, landSize, bathrooms, garage, roof);
+        } else if (selectedProjectType.equals("Bridge")){
+            //create and add bridge object to Project Manager array list
+            project = new Bridge(projectType, typeClassification, budget, projectManager, location, newNotRenovation, customerID, estimatedDuration, estimatedStart, actualStart, actualEnd, accumulatedCost,
+                    type, floodingRisk, buildingMaterial, width, overlay, span);
+        } else if (selectedProjectType.equals("Tunnel")){
+            //create and add tunnel object to Project Manager array list
+            project = new Tunnel(projectType, typeClassification, budget, projectManager, location, newNotRenovation, customerID, estimatedDuration, estimatedStart, actualStart, actualEnd, accumulatedCost,
+                    width, overlay, excavating, safetyTunnel, length, groundStructuralStability);
+        } else if (selectedProjectType.equals("Land")){
+            //create and add land object to Project Manager arrayList
+            project = new Land(projectType, typeClassification, budget, projectManager, location, newNotRenovation, customerID, estimatedDuration, estimatedStart, actualStart, actualEnd, accumulatedCost,
+                    size, currentComposition, natureReserve);
+        }
+
+        return project;
+    }
+
+    private Calendar toCalendar(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar;
+    }
+
+    private void addProject(Project project) {
+        //if project is null don't add
+        if (project == null){
+            return;
+        }
+        //checking if project customerID is unique, and if so add to project manager. Because customer IDs are unique to each project.
+        if (PM.isUnique(project)) {
+            PM.addProject(project);
+        } else{
+            return;
+        }
+    }
 
     private void pre_fill(ProjectManager pm) {
         //pre-fill and do stuff for when program first starts up
@@ -149,13 +237,14 @@ public class UI {
         projectTypeJComboBox.addItem("Bridge");
         projectTypeJComboBox.addItem("Tunnel");
         projectTypeJComboBox.addItem("Land");
-        check_fields();
+        enableOrDisableProjectSpecificFields();
     }
 
-    private void check_fields() {
+    private void enableOrDisableProjectSpecificFields() {
         //check that fields are correct format or block entry possibilities and let user know with a JOptionPane
         //clearAllProjectFields();
         disableAllProjectSpecificFields();
+        //disableEditAndRecordButton();
         if (projectTypeJComboBox.getSelectedItem().equals("House")){
             //set up GUI for house projects
             typeTextField.setEnabled(true);
@@ -197,6 +286,11 @@ public class UI {
             compositionTextField.setEnabled(true);
             natureReserveCheckBox.setEnabled(true);
         }
+    }
+
+    private void disableEditAndRecordButton() {
+        editProjectButton.setEnabled(false);
+        addProjectButton.setEnabled(false);
     }
 
     private void disableAllProjectSpecificFields() {
