@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Project {
@@ -161,5 +162,17 @@ public class Project {
             isCorrect=false;
         }
         return isCorrect;
+    }
+
+    @Override
+    public String toString() {
+        return customerID +": "+
+               projectType +
+               " with budget of $" + budget +
+               " managed by " + projectManager +
+               " located in " + location +
+               ". Work should start " + (new SimpleDateFormat("dd.MM.yy").format(estimatedStart.getTime())) +
+               " and last " + estimatedDuration +
+               " days.";
     }
 }

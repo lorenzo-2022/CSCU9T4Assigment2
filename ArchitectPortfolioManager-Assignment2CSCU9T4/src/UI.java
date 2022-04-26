@@ -148,7 +148,8 @@ public class UI {
         projectTypeSearchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //search for projects of this type
+                searchProjectsByType();
             }
         });
         projectManagerSearchButton.addActionListener(new ActionListener() {
@@ -166,6 +167,11 @@ public class UI {
     }
 
     /**object methods*/
+
+    private void searchProjectsByType() {
+        String selectedType = (String) projectTypeSearchJComboBox.getSelectedItem();
+        searchResultsTextArea.setText(PM.searchByType(selectedType));
+    }
 
     private Project generateProjectFromFields() {
         Project project = null; //project that will be generated
@@ -266,12 +272,18 @@ public class UI {
 
     private void pre_fill(ProjectManager pm) {
         //pre-fill and do stuff for when program first starts up
+        //pre-fill add/edit JPanel project type JComboBox
         projectTypeJComboBox.removeAllItems();
         projectTypeJComboBox.addItem("House");
         projectTypeJComboBox.addItem("Bridge");
         projectTypeJComboBox.addItem("Tunnel");
         projectTypeJComboBox.addItem("Land");
         enableOrDisableProjectSpecificFields();
+        //pre-fill search JPanel project type search JComboBox
+        projectTypeSearchJComboBox.addItem("House");
+        projectTypeSearchJComboBox.addItem("Bridge");
+        projectTypeSearchJComboBox.addItem("Tunnel");
+        projectTypeSearchJComboBox.addItem("Land");
     }
 
     private void enableOrDisableProjectSpecificFields() {
@@ -1138,7 +1150,32 @@ public class UI {
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
         searchJPanel.add(projectManagerSearchTextField, gbc);
+
+        //add a scroll pane
+        final JScrollPane scroll = new JScrollPane (searchResultsTextArea);
+        scroll.setPreferredSize(new Dimension(500, 350));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 5;
+        gbc.gridy = 1;
+        gbc.gridheight = 11;
+        gbc.fill = GridBagConstraints.BOTH;
+        searchJPanel.add(scroll, gbc);
+
+        //add search results text area to the scroll pane
         searchResultsTextArea = new JTextArea();
+        searchResultsTextArea.setLineWrap(false);
+        searchResultsTextArea.setEditable(false);
+        searchResultsTextArea.setVisible(true);
+        //searchResultsTextArea.setPreferredSize(new Dimension(800, 800)); //changing dimensions of search results text area //must not use this, or it messes with JScrollPane
+        scroll.setViewportView(searchResultsTextArea);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        //original text area without scroll pane
+        /*
+        searchResultsTextArea = new JTextArea();
+        searchResultsTextArea.setPreferredSize(new Dimension(1200, 350)); //changing dimensions of search results text area
+        searchResultsTextArea.setEditable(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 5;
         gbc.gridy = 1;
@@ -1147,6 +1184,8 @@ public class UI {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         searchJPanel.add(searchResultsTextArea, gbc);
+        */
+
         final JPanel spacer8 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;

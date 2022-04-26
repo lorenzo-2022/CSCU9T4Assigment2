@@ -230,4 +230,18 @@ public class ProjectManager {
             }
         }
     }
+
+    public String searchByType(String selectedType) {
+        String output = "Search projects by " + selectedType + " type results:\n";
+        //iterate through projects
+        ListIterator<Project> projectListIterator = projects.listIterator();
+        while (projectListIterator.hasNext()){
+            Project currentProject = projectListIterator.next();
+            if (currentProject.getProjectType().equals(selectedType)) {
+                //then current project is of desired type and needs to be added to output
+                output += currentProject.toString() + "\n";
+            }
+        }
+        return output;
+    }
 }
