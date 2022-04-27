@@ -216,7 +216,7 @@ public class ProjectManager {
     }
 
     public String searchByType(String selectedType) {
-        String output = "Search projects by type " + selectedType + " results:\n";
+        String output = "Search projects by type: " + selectedType + "\nResults:\n";
         //iterate through projects
         ListIterator<Project> projectListIterator = projects.listIterator();
         while (projectListIterator.hasNext()){
@@ -230,7 +230,7 @@ public class ProjectManager {
     }
 
     public String searchByMinAndMaxCost(int minCost, int maxCost) {
-        String output = "Search by minimum cost "+minCost+" and maximum cost "+maxCost+":\n";
+        String output = "Search by minimum cost "+minCost+" and maximum cost "+maxCost+":\nResults:\n";
         if (maxCost < minCost){
             JOptionPane.showMessageDialog(null, "Min cost cannot be less than max cost", "Min-Max search error", JOptionPane.ERROR_MESSAGE);
             output = "Min cost cannot be less than max cost";
@@ -255,7 +255,9 @@ public class ProjectManager {
     }
 
     public String searchByManager(String searchInput) {
-        String output = "Search by manager " + searchInput + ":\n";
+        String output = "Search by manager: " + searchInput + ":\nResults\n";
+        // capitalise first letter and make following letters lower case
+        //String searchInputCapitalised = searchInput.substring(0, 1).toUpperCase() + searchInput.substring(1).toLowerCase();
         //find all projects with a matching manager
         int resultCounter = 0;
         ListIterator<Project> projectListIterator = projects.listIterator();
