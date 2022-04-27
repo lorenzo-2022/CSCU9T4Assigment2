@@ -89,8 +89,8 @@ public class UI {
 
     /**main method: program start*/
     public static void main(String[] args) {
-        //ProjectManager PM = new ProjectManager(); //added this to UI object variables instead, so I can access it in UI constructor for pre_fill method
-        UI GUI = new UI();
+        //ProjectManager PM = new ProjectManager(); //added this to UI object variables instead, so I can access it in UI constructor for pre_fill method and because the GUI must read in the CSV file, so I can have it is a variable.
+        UI GUI = new UI(); //create new instance of UI object
     }
 
     /**object constructor*/
