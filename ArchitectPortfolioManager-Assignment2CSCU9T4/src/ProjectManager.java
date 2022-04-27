@@ -173,7 +173,6 @@ public class ProjectManager {
         if (dmy.equals("")){
             return null;
         }
-        System.out.println(dmy);
         String[] calArray = dmy.split("-"); //forward slashes / are read as dashes -
         int day = Integer.parseInt(calArray[2]);
         int month = Integer.parseInt(calArray[1]);
@@ -185,23 +184,6 @@ public class ProjectManager {
 
     public void addProject(Project project) {
         projects.add(project);
-    }
-
-    /**getters and setters*/
-    public String getInputFileName() {
-        return inputFileName;
-    }
-
-    public void setInputFileName(String inputFileName) {
-        this.inputFileName = inputFileName;
-    }
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
     }
 
     public boolean isUnique(Project project) {
@@ -259,7 +241,7 @@ public class ProjectManager {
             while (projectListIterator.hasNext()){
                 Project currentProject = projectListIterator.next();
                 if (currentProject.getAccumulatedCost() >= minCost &&
-                currentProject.getAccumulatedCost() <= maxCost) {
+                        currentProject.getAccumulatedCost() <= maxCost) {
                     //then current project is of desired cost range and needs to be added to output
                     output += currentProject.toString() + "\n";
                     resultCounter ++;
@@ -290,4 +272,22 @@ public class ProjectManager {
         }
         return output;
     }
+
+    /**getters and setters*/
+    public String getInputFileName() {
+        return inputFileName;
+    }
+
+    public void setInputFileName(String inputFileName) {
+        this.inputFileName = inputFileName;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
 }
