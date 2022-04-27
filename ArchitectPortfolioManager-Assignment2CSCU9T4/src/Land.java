@@ -34,6 +34,23 @@ public class Land extends Project{
     /**object methods*/
 
     @Override
+    public String toString() {
+        String natureReserveString;
+        if (natureReserve){
+            natureReserveString = "on a nature reserve";
+        } else {
+            natureReserveString = "not on a nature reserve";
+        }
+
+        String output;
+        output = super.toString();
+        output += ".\n" + size_acres + " acres " +
+                "of " + currentComposition +
+                " " + natureReserveString;
+        return output;
+    }
+
+    @Override
     public boolean isCorrect() {
         boolean isCorrect = super.isCorrect();
         if (this.currentComposition.equals("")){

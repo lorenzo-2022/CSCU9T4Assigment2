@@ -41,6 +41,26 @@ public class Tunnel extends Project{
     /**object methods*/
 
     @Override
+    public String toString() {
+        String safetyTunnelString;
+        if (safetyTunnel){
+            safetyTunnelString = "a safety tunnel";
+        } else {
+            safetyTunnelString = "no safety tunnel";
+        }
+
+        String output;
+        output = super.toString();
+        output += ".\n" + widthInMetres + "m wide and " +
+                lengthInMetres + "m long " +
+                "tunnel excavating " + excavating +
+                " with: \nground structural stability " + groundStructuralStability +
+                ", a " + overlay + " overlay" +
+                ", and " + safetyTunnelString;
+        return output;
+    }
+
+    @Override
     public boolean isCorrect() {
         boolean isCorrect = super.isCorrect();
         if (this.overlay.equals("")){

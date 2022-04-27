@@ -196,7 +196,7 @@ public class Project {
                 "\nBudget of $" + budget +
                 ". Accumulated cost of $" + accumulatedCost +
                 ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yy").format(estimatedStart.getTime())) +
-                " and duration " + estimatedDuration + " days" +
+                " and estimated duration " + estimatedDuration + " days" +
                 ".\nWorks start " + actualStartString +
                 " and end " + actualEndString;
     }

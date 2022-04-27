@@ -40,6 +40,19 @@ public class Bridge extends Project{
     /**object methods*/
 
     @Override
+    public String toString() {
+        String output;
+        output = super.toString();
+        output += ".\n" + widthInMetres + "m wide and " +
+                spanInMetres + "m long " +
+                buildingMaterial + " " +
+                type + " bridge" +
+                " with: \nflooding risk " + floodingRisk+
+                ", and a " + overlay + " overlay";
+        return output;
+    }
+
+    @Override
     public boolean isCorrect() {
         boolean isCorrect = super.isCorrect();
         if (this.type.equals("")){
