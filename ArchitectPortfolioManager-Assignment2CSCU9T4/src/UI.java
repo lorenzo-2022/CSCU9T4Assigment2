@@ -424,6 +424,7 @@ public class UI {
         SpinnerModel minCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         SpinnerModel maxCostRangeSpinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
 
+        //initialising GUI elements
 
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());

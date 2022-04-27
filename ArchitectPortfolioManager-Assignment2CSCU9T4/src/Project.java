@@ -35,6 +35,76 @@ public class Project {
     }
 
     /**object methods*/
+
+    public boolean isCorrect() {
+        boolean isCorrect = true;
+        if (this.projectType.equals(null)){
+            JOptionPane.showMessageDialog(null, "Project type cannot be null.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.projectClassification.equals("")){
+            JOptionPane.showMessageDialog(null, "Project classification cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.projectManager.equals("")){
+            JOptionPane.showMessageDialog(null, "Project manager cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.location.equals("")){
+            JOptionPane.showMessageDialog(null, "Location cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.customerID.equals("")){
+            JOptionPane.showMessageDialog(null, "Customer ID cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.estimatedStart.after(this.actualStart)){ //Assuming estimated start cannot be after actual start seeing as all projects follow this rule.
+            JOptionPane.showMessageDialog(null, "Actual start cannot be before estimated start.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        if (this.actualEnd.before(this.actualStart)){
+            JOptionPane.showMessageDialog(null, "Actual end cannot be before actual start.", "Warning", JOptionPane.WARNING_MESSAGE);
+            isCorrect=false;
+        }
+        return isCorrect;
+    }
+
+    @Override
+    public String toString() {
+        //because actual start and end dates can also not have a value it must be determined whether they are null in order to print those date values for the projects.
+        String actualStartString = "";
+        if (actualStart == null){
+            actualStartString = "unknown";
+        } else{
+            actualStartString = (new SimpleDateFormat("dd.MM.yyyy").format(actualStart.getTime()));
+        }
+        String actualEndString = "";
+        if (actualEnd == null){
+            actualEndString = "unknown";
+        } else {
+            actualEndString = (new SimpleDateFormat("dd.MM.yyyy").format(actualEnd.getTime()));
+        }
+
+        String newOrRen;
+        if (newNotRenovation){
+            newOrRen = "New";
+        } else {
+            newOrRen = "Renovation";
+        }
+        return "\n" + customerID +":\n"+
+                newOrRen +
+                " " + projectClassification+
+                " " + projectType +
+                " located in " + location +
+                " managed by " + projectManager + "."+
+                "\nBudget of $" + budget +
+                ". Accumulated cost of $" + accumulatedCost +
+                ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yyyy").format(estimatedStart.getTime())) +
+                " and estimated duration " + estimatedDuration + " days" +
+                ".\nWorks start " + actualStartString +
+                " and end " + actualEndString;
+    }
+
     /**getters*/
     public String getProjectType() {
         return projectType;
@@ -130,74 +200,5 @@ public class Project {
 
     public void setAccumulatedCost(int accumulatedCost) {
         this.accumulatedCost = accumulatedCost;
-    }
-
-    public boolean isCorrect() {
-        boolean isCorrect = true;
-        if (this.projectType.equals(null)){
-            JOptionPane.showMessageDialog(null, "Project type cannot be null.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.projectClassification.equals("")){
-            JOptionPane.showMessageDialog(null, "Project classification cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.projectManager.equals("")){
-            JOptionPane.showMessageDialog(null, "Project manager cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.location.equals("")){
-            JOptionPane.showMessageDialog(null, "Location cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.customerID.equals("")){
-            JOptionPane.showMessageDialog(null, "Customer ID cannot be empty.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.estimatedStart.after(this.actualStart)){ //Assuming estimated start cannot be after actual start seeing as all projects follow this rule.
-            JOptionPane.showMessageDialog(null, "Actual start cannot be before estimated start.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        if (this.actualEnd.before(this.actualStart)){
-            JOptionPane.showMessageDialog(null, "Actual end cannot be before actual start.", "Warning", JOptionPane.WARNING_MESSAGE);
-            isCorrect=false;
-        }
-        return isCorrect;
-    }
-
-    @Override
-    public String toString() {
-        //because actual start and end dates can also not have a value it must be determined whether they are null in order to print those date values for the projects.
-        String actualStartString = "";
-        if (actualStart == null){
-            actualStartString = "unknown";
-        } else{
-            actualStartString = (new SimpleDateFormat("dd.MM.yyyy").format(actualStart.getTime()));
-        }
-        String actualEndString = "";
-        if (actualEnd == null){
-            actualEndString = "unknown";
-        } else {
-            actualEndString = (new SimpleDateFormat("dd.MM.yyyy").format(actualEnd.getTime()));
-        }
-
-        String newOrRen;
-        if (newNotRenovation){
-            newOrRen = "New";
-        } else {
-            newOrRen = "Renovation";
-        }
-        return "\n" + customerID +":\n"+
-                newOrRen +
-                " " + projectClassification+
-                " " + projectType +
-                " located in " + location +
-                " managed by " + projectManager + "."+
-                "\nBudget of $" + budget +
-                ". Accumulated cost of $" + accumulatedCost +
-                ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yyyy").format(estimatedStart.getTime())) +
-                " and estimated duration " + estimatedDuration + " days" +
-                ".\nWorks start " + actualStartString +
-                " and end " + actualEndString;
     }
 }
