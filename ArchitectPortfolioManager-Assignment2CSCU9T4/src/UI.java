@@ -87,7 +87,7 @@ public class UI {
     private JSpinner estimatedStartSpinner;
     private JSpinner actualStartSpinner;
     private JSpinner actualEndSpinner;
-    ProjectManager PM = new ProjectManager();
+    private ProjectManager PM = new ProjectManager();
 
     /**main method: program start*/
     public static void main(String[] args) {
