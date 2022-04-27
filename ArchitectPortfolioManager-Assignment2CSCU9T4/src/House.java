@@ -64,6 +64,29 @@ public class House extends Project{
         return isCorrect;
     }
 
+    @Override
+    public String toString() {
+        String garageString;
+        if (garage){
+            garageString = "a garage";
+        } else {
+            garageString = "no garage";
+        }
+
+        String output;
+        output = super.toString();
+        output += ".\n" + size_m2 + "m2 " +
+                buildingMaterial + " " +
+                type +
+                " with: \nflooding risk " + floodingRisk+
+                ", " + bedrooms + " bedrooms" +
+                ", " + landSizeAcres + " acres of land" +
+                ", " + bathrooms + " bathrooms" +
+                ",\n"+ garageString +
+                ", and a " + roof + " roof.";
+        return output;
+    }
+
     /**getters and setters*/
     public String getType() {
         return type;

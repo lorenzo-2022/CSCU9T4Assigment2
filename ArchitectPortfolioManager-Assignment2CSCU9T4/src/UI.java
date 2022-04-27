@@ -1153,7 +1153,7 @@ public class UI {
 
         //add a scroll pane
         final JScrollPane scroll = new JScrollPane (searchResultsTextArea);
-        scroll.setPreferredSize(new Dimension(500, 350));
+        scroll.setPreferredSize(new Dimension(650, 350));
         gbc = new GridBagConstraints();
         gbc.gridx = 5;
         gbc.gridy = 1;

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Project {
     /**object variables*/
@@ -166,13 +167,37 @@ public class Project {
 
     @Override
     public String toString() {
-        return customerID +": "+
-               projectType +
-               " with budget of $" + budget +
-               " managed by " + projectManager +
-               " located in " + location +
-               ". Work should start " + (new SimpleDateFormat("dd.MM.yy").format(estimatedStart.getTime())) +
-               " and last " + estimatedDuration +
-               " days.";
+        //because actual start and end dates can also not have a value it must be determined whether they are null in order to print those date values for the projects.
+        String actualStartString = "";
+        if (actualStart == null){
+            actualStartString = "unknown";
+        } else{
+            actualStartString = (new SimpleDateFormat("dd.MM.yy").format(actualStart.getTime()));
+        }
+        String actualEndString = "";
+        if (actualEnd == null){
+            actualEndString = "unknown";
+        } else {
+            actualEndString = (new SimpleDateFormat("dd.MM.yy").format(actualEnd.getTime()));
+        }
+
+        String newOrRen;
+        if (newNotRenovation){
+            newOrRen = "New";
+        } else {
+            newOrRen = "Renovation";
+        }
+        return "\n" + customerID +":\n"+
+                newOrRen +
+                " " + projectClassification+
+                " " + projectType +
+                " located in " + location +
+                " managed by " + projectManager + "."+
+                "\nBudget of $" + budget +
+                ". Accumulated cost of $" + accumulatedCost +
+                ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yy").format(estimatedStart.getTime())) +
+                " and duration " + estimatedDuration + " days" +
+                ".\nWorks start " + actualStartString +
+                " and end " + actualEndString;
     }
 }
