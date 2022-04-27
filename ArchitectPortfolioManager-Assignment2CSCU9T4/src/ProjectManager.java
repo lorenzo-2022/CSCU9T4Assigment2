@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -241,6 +242,50 @@ public class ProjectManager {
                 //then current project is of desired type and needs to be added to output
                 output += currentProject.toString() + "\n";
             }
+        }
+        return output;
+    }
+
+    public String searchByMinAndMaxCost(int minCost, int maxCost) {
+        String output = "Search by minimum cost "+minCost+" and maximum cost "+maxCost+":\n";
+        if (maxCost < minCost){
+            JOptionPane.showMessageDialog(null, "Min cost cannot be less than max cost", "Min-Max search error", JOptionPane.ERROR_MESSAGE);
+            output = "Min cost cannot be less than max cost";
+        } else {
+            //find all projects with an accumulated cost between minCost and maxCost
+            int resultCounter = 0;
+            ListIterator<Project> projectListIterator = projects.listIterator();
+            while (projectListIterator.hasNext()){
+                Project currentProject = projectListIterator.next();
+                if (currentProject.getAccumulatedCost() >= minCost &&
+                currentProject.getAccumulatedCost() <= maxCost) {
+                    //then current project is of desired cost range and needs to be added to output
+                    output += currentProject.toString() + "\n";
+                    resultCounter ++;
+                }
+            }
+            if (resultCounter == 0){
+                output += "\nNo results found.";
+            }
+        }
+        return output;
+    }
+
+    public String searchByManager(String searchInput) {
+        String output = "Search by manager " + searchInput + ":\n";
+        //find all projects with a matching manager
+        int resultCounter = 0;
+        ListIterator<Project> projectListIterator = projects.listIterator();
+        while (projectListIterator.hasNext()){
+            Project currentProject = projectListIterator.next();
+            if (currentProject.getProjectManager().equals(searchInput)) {
+                //then current project is of desired manager and needs to be added to output
+                output += currentProject.toString() + "\n";
+                resultCounter ++;
+            }
+        }
+        if (resultCounter == 0){
+            output += "\nNo results found.";
         }
         return output;
     }

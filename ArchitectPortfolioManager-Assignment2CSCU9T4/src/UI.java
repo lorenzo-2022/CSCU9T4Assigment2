@@ -155,18 +155,30 @@ public class UI {
         projectManagerSearchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                searchProjectsByManager();
             }
         });
         costRangeSearchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                searchProjectsByCostRange();
             }
         });
     }
 
     /**object methods*/
+
+    private void searchProjectsByCostRange() {
+        int minCost = (int) minCostRangeSearchSpinner.getValue();
+        int maxCost = (int) maxCostRangeSearchSpinner.getValue();
+        searchResultsTextArea.setText(PM.searchByMinAndMaxCost(minCost, maxCost));
+    }
+
+    private void searchProjectsByManager() {
+        String searchInput = projectManagerSearchTextField.getText();
+        searchResultsTextArea.setText(PM.searchByManager(searchInput));
+
+    }
 
     private void searchProjectsByType() {
         String selectedType = (String) projectTypeSearchJComboBox.getSelectedItem();
