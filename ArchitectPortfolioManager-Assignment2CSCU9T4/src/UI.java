@@ -1,3 +1,8 @@
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -1284,6 +1289,13 @@ public class UI {
 
     private void setLAndF() {
         try {
+            UIManager.setLookAndFeel( new FlatDarculaLaf() );
+        } catch ( Exception ex ) {
+            System.err.println( "Failed to initialise LaF" );
+        }
+
+        /*
+        try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }
         catch (UnsupportedLookAndFeelException e) {
@@ -1302,6 +1314,8 @@ public class UI {
             // handle exception
             e.printStackTrace();
         }
+        */
     }
+
 
 }
