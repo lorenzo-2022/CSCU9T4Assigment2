@@ -103,6 +103,8 @@ public class UI {
         setLAndF();
         setupGUI(); //this initialises all the GUI components (variables)
         JFrame frame = new JFrame("Jenga Design Ltd. Portfolio Manager");
+        Image icon = Toolkit.getDefaultToolkit().getImage("architectIcon.png");
+        frame.setIconImage(icon);
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
