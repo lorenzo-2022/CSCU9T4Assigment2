@@ -172,13 +172,13 @@ public class Project {
         if (actualStart == null){
             actualStartString = "unknown";
         } else{
-            actualStartString = (new SimpleDateFormat("dd.MM.yy").format(actualStart.getTime()));
+            actualStartString = (new SimpleDateFormat("dd.MM.yyyy").format(actualStart.getTime()));
         }
         String actualEndString = "";
         if (actualEnd == null){
             actualEndString = "unknown";
         } else {
-            actualEndString = (new SimpleDateFormat("dd.MM.yy").format(actualEnd.getTime()));
+            actualEndString = (new SimpleDateFormat("dd.MM.yyyy").format(actualEnd.getTime()));
         }
 
         String newOrRen;
@@ -195,7 +195,7 @@ public class Project {
                 " managed by " + projectManager + "."+
                 "\nBudget of $" + budget +
                 ". Accumulated cost of $" + accumulatedCost +
-                ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yy").format(estimatedStart.getTime())) +
+                ".\nEstimated start " + (new SimpleDateFormat("dd.MM.yyyy").format(estimatedStart.getTime())) +
                 " and estimated duration " + estimatedDuration + " days" +
                 ".\nWorks start " + actualStartString +
                 " and end " + actualEndString;

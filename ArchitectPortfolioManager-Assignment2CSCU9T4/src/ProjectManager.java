@@ -173,12 +173,13 @@ public class ProjectManager {
         if (dmy.equals("")){
             return null;
         }
-        String[] calArray = dmy.split("-"); //forward slashes / are read as dashed -
-        int day = Integer.parseInt(calArray[0]);
+        System.out.println(dmy);
+        String[] calArray = dmy.split("-"); //forward slashes / are read as dashes -
+        int day = Integer.parseInt(calArray[2]);
         int month = Integer.parseInt(calArray[1]);
-        int year = Integer.parseInt(calArray[2]);
+        int year = Integer.parseInt(calArray[0]);
         Calendar calendar = (Calendar.getInstance());
-        calendar.set(year, month, day);
+        calendar.set(year, month-1, day); //month values start at 0 so must subtract 1 from month input
         return calendar;
     }
 

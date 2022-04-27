@@ -1275,7 +1275,7 @@ public class UI {
         searchJPanel.add(maxCostRangeSearchSpinner, gbc);
 
         //setting JSpinner date editors to show date only
-        SimpleDateFormat model = new SimpleDateFormat("dd.MM.yy");
+        SimpleDateFormat model = new SimpleDateFormat("dd.MM.yyyy");
         actualStartSpinner.setEditor(new JSpinner.DateEditor(actualStartSpinner, model.toPattern()));
         actualEndSpinner.setEditor(new JSpinner.DateEditor(actualEndSpinner, model.toPattern()));
         estimatedStartSpinner.setEditor(new JSpinner.DateEditor(estimatedStartSpinner, model.toPattern()));
