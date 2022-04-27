@@ -56,7 +56,7 @@ public class Tunnel extends Project{
                 "tunnel excavating " + excavating +
                 " with: \nground structural stability " + groundStructuralStability +
                 ", a " + overlay + " overlay" +
-                ", and " + safetyTunnelString;
+                ", and " + safetyTunnelString + ".";
         return output;
     }
 

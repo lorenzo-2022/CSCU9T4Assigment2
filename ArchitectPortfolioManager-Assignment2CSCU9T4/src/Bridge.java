@@ -48,7 +48,7 @@ public class Bridge extends Project{
                 buildingMaterial + " " +
                 type + " bridge" +
                 " with: \nflooding risk " + floodingRisk+
-                ", and a " + overlay + " overlay";
+                ", and a " + overlay + " overlay.";
         return output;
     }
 

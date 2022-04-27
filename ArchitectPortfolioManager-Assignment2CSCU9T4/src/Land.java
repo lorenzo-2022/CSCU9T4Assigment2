@@ -46,7 +46,7 @@ public class Land extends Project{
         output = super.toString();
         output += ".\n" + size_acres + " acres " +
                 "of " + currentComposition +
-                " " + natureReserveString;
+                " " + natureReserveString + ".";
         return output;
     }
 
