@@ -216,7 +216,7 @@ public class ProjectManager {
     }
 
     public String searchByType(String selectedType) {
-        String output = "Search projects by " + selectedType + " type results:\n";
+        String output = "Search projects by type " + selectedType + " results:\n";
         //iterate through projects
         ListIterator<Project> projectListIterator = projects.listIterator();
         while (projectListIterator.hasNext()){
