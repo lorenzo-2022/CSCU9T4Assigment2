@@ -55,7 +55,9 @@ public class ProjectManager {
                 String typeClassification = projectTypeAndClassification[1].trim(); //.trim() method removes empty spaces surrounding string
                 String budgetString = projectInformation[10];
                 int budget = Integer.parseInt(budgetString);
-                String projectManager = projectInformation[11];
+                String projectManagerNotCapitalised = projectInformation[11];
+                //capitalise first letter and make following letters lower case
+                String projectManager = projectManagerNotCapitalised.substring(0, 1).toUpperCase() + projectManagerNotCapitalised.substring(1).toLowerCase();
                 String location = projectInformation[12];
                 String newNotRenovationString = projectInformation[13];
                 boolean newNotRenovation = Boolean.parseBoolean(newNotRenovationString);
@@ -257,13 +259,13 @@ public class ProjectManager {
     public String searchByManager(String searchInput) {
         String output = "Search by manager: " + searchInput + ":\nResults\n";
         // capitalise first letter and make following letters lower case
-        //String searchInputCapitalised = searchInput.substring(0, 1).toUpperCase() + searchInput.substring(1).toLowerCase();
+        String searchInputCapitalised = searchInput.substring(0, 1).toUpperCase() + searchInput.substring(1).toLowerCase();
         //find all projects with a matching manager
         int resultCounter = 0;
         ListIterator<Project> projectListIterator = projects.listIterator();
         while (projectListIterator.hasNext()){
             Project currentProject = projectListIterator.next();
-            if (currentProject.getProjectManager().equals(searchInput)) {
+            if (currentProject.getProjectManager().equals(searchInputCapitalised)) {
                 //then current project is of desired manager and needs to be added to output
                 output += currentProject.toString() + "\n";
                 resultCounter ++;
