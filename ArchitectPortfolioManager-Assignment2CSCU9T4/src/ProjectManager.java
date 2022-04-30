@@ -234,8 +234,8 @@ public class ProjectManager {
     public String searchByMinAndMaxCost(int minCost, int maxCost) {
         String output = "Search by minimum cost "+minCost+" and maximum cost "+maxCost+":\nResults:\n";
         if (maxCost < minCost){
-            JOptionPane.showMessageDialog(null, "Min cost cannot be less than max cost", "Min-Max search error", JOptionPane.ERROR_MESSAGE);
-            output = "Min cost cannot be less than max cost";
+            JOptionPane.showMessageDialog(null, "Max cost cannot be less than min cost", "Min-Max search error", JOptionPane.ERROR_MESSAGE);
+            output = "Max cost cannot be less than min cost.";
         } else {
             //find all projects with an accumulated cost between minCost and maxCost
             int resultCounter = 0;
