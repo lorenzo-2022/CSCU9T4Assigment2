@@ -257,7 +257,10 @@ public class ProjectManager {
     }
 
     public String searchByManager(String searchInput) {
-        String output = "Search by manager: " + searchInput + ":\nResults\n";
+        String output = "Search by manager " + searchInput + ":\nResults\n";
+        if (searchInput.equals("")){
+            return "\nEmpty manager search input. \n\nNo results found because all projects must have a manager."; //If manager search is empty string return no results and say that all projects have a manager.
+        }
         // capitalise first letter and make following letters lower case
         String searchInputCapitalised = searchInput.substring(0, 1).toUpperCase() + searchInput.substring(1).toLowerCase();
         //find all projects with a matching manager
