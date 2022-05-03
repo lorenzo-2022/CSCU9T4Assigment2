@@ -196,8 +196,10 @@ public class UI {
         String projectType = selectedProjectType;
         String typeClassification = classificationTextField.getText();
         int budget = (int) budgetSpinner.getValue();
-        String projectManagerNotCapitalised = managerTextField.getText();
-        String projectManager = projectManagerNotCapitalised.substring(0, 1).toUpperCase() + projectManagerNotCapitalised.substring(1).toLowerCase();
+        String projectManager = managerTextField.getText();
+        if (!(projectManager.equals(""))){
+            projectManager = projectManager.substring(0, 1).toUpperCase() + projectManager.substring(1).toLowerCase();
+        }
         String location = locationTextField.getText();
         boolean newNotRenovation = newNotRenovationCheckBox.isSelected();
         String customerID = customerIDTextField.getText();
