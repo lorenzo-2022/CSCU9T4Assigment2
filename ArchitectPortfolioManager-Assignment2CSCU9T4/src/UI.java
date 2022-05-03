@@ -271,6 +271,8 @@ public class UI {
         if (PM.isUnique(project)) {
             PM.addProject(project);
         } else{
+            //telling the user that customer ID must be unique, and that the inputted one is already in use.
+            JOptionPane.showMessageDialog(null, "Customer ID is already in use. Projects must have a unique customer ID.", "Customer ID error", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
     }
@@ -284,6 +286,8 @@ public class UI {
         if (!(PM.isUnique(project))) {
             PM.editProject(project);
         } else{
+            //telling the user that no projects with the inputted customer ID were found, therefore no project was edited.
+            JOptionPane.showMessageDialog(null, "Project not found. Please enter a valid customer ID.", "Customer ID error", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
     }
